@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.font-primary{
+  font-weight: bold;
+}
+
+.within-list li{
+  font-size: 12px !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidenav-list li{
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
