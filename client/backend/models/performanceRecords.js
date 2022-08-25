@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const performanceRecordSchema = new mongoose.Schema({
+  performanceuniqueid: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

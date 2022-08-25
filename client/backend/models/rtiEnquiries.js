@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const rtiEnquirySchema = new mongoose.Schema({
+  rtiuniqueid: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

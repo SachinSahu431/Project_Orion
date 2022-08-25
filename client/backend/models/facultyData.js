@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const facultySchema = new mongoose.Schema({
+  uniqueid: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

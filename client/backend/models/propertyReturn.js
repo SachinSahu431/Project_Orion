@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const propertyReturnSchema = new mongoose.Schema({
+  propertyuniqueid: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
