@@ -40,11 +40,8 @@ const paymentManagementSchema = new mongoose.Schema({
   travelReimbusement: {
     type: Number,
   },
-  travelReimbusementFile: {
+  medicalReimbusementFile: {
     type: Buffer,
-  },
-  travelReimbusementFilename: {
-    type: String,
   },
   otherReimbusements: {
     type: Number,
