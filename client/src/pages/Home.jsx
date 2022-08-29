@@ -4,7 +4,7 @@ export default function Home() {
       <div className="col-lg-8 col-md-6 col-12">
         <div className="card border-1 rounded-1">
           <div className="card-body">
-            <h3 className="card-title">Hi👋, Orion</h3>
+            <h3 className="card-title">Hi👋, Team Orion</h3>
             <p className="fw-bold text-muted">[ Demonstration Content ]</p>
             <p className="card-text">The Project Orion's Team project website for ERP created as part of a Software Engineering Course.</p>
           </div>
