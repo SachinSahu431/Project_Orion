@@ -12,6 +12,7 @@ import FacultyRecruitment from "./pages/FacultyRecruitment";
 import CeaAllowance from "./pages/CeaAllowance";
 import Payment from "./pages/Payment";
 import Performance from "./pages/Performance";
+import Medical from "./pages/Medical";
 import StaffRecruitment from "./pages/StaffRecruitment";
 
 const navHeight = 65;
@@ -93,6 +94,12 @@ export default function App() {
                   >
                     Staff Performance Management
                   </Link>
+                  <Link
+                    to="/staff_service/medical"
+                    className="list-group-item list-group-item-action"
+                  >
+                    Medical Records
+                  </Link>
                 </ul>
               </Link>
               <Link
@@ -153,6 +160,10 @@ export default function App() {
               <Route
                 path="/staff_service/performance"
                 element={<Performance />}
+              ></Route>
+              <Route
+                path="/staff_service/medical"
+                element={<Medical />}
               ></Route>
 
               <Route path="/training" element={<Training />}></Route>
