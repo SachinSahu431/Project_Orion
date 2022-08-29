@@ -309,23 +309,6 @@ export default function Payment() {
 
           <div class="row mb-3">
             <label for="exampleInputFriends" class="col-sm-3 col-form-label">
-              Travel Reimbursement (in ₹)
-            </label>
-            <div class="col-sm-9">
-              <input
-                type="number"
-                class="form-control"
-                id="exampleInputFriends"
-                placeholder="Amount in rupees (₹)"
-                required
-              />
-              <div class="invalid-feedback">Please provide a valid value.</div>
-              <div class="valid-feedback">Looks good!</div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label for="exampleInputFriends" class="col-sm-3 col-form-label">
               Other Reimbusements (in ₹)
             </label>
             <div class="col-sm-9">

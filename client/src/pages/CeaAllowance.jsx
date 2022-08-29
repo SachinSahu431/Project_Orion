@@ -174,6 +174,92 @@ export default function CEAAllowance() {
           </div>
 
           <div class="row mb-3">
+            <label for="exampleInputFriends" class="col-sm-3 col-form-label">
+              Amount approved (in ₹)
+            </label>
+            <div class="col-sm-9">
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputFriends"
+                placeholder="Amount in rupees (₹)"
+                required
+              />
+              <div class="invalid-feedback">Please provide a valid value.</div>
+              <div class="valid-feedback">Looks good!</div>
+              <div class="form-text">Amount in rupees</div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="exampleInputFriends" class="col-sm-3 col-form-label">
+              Income Tax Deducted (in ₹)
+            </label>
+            <div class="col-sm-9">
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputFriends"
+                placeholder="Amount in rupees (₹)"
+                required
+              />
+              <div class="invalid-feedback">Please provide a valid value.</div>
+              <div class="valid-feedback">Looks good!</div>
+              <div class="form-text">Amount in rupees</div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-3 col-form-label pt-0">Approved?</label>
+            <div class="col-sm-9">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleBooleanRadio"
+                  id="exampleBooleanRadioYes"
+                  value="red"
+                  required
+                />
+                <label class="form-check-label" for="exampleBooleanRadioYes">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="exampleBooleanRadio"
+                  id="exampleBooleanRadioNo"
+                  value="red"
+                  required
+                />
+                <label class="form-check-label" for="exampleBooleanRadioNo">
+                  No
+                </label>
+              </div>
+              <div class="invalid-feedback">Terms must be accepted</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="exampleCustomFile" class="col-sm-3 col-form-label">
+              Upload File (Optional)
+            </label>
+            <div class="col-sm-9">
+              <input
+                type="file"
+                class="form-control"
+                id="exampleCustomFile"
+                required
+              />
+              <div class="invalid-feedback">Please provide a valid value.</div>
+              <div class="valid-feedback">Looks good!</div>
+              <div class="form-text">
+                (pdf, docx, jpg are acceptable formats)
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
             <div class="col-sm-9 offset-sm-3">
               <div class="form-check">
                 <input
@@ -195,17 +281,20 @@ export default function CEAAllowance() {
             </div>
           </div>
 
-          <div class="row mb-0">
-            <div class="col-sm-9 offset-sm-3">
-              <button type="submit" class="btn btn-primary">
-                Submit
-              </button>
-              <button type="reset" class="btn btn-outline-secondary">
-                Cancel
-              </button>
+                <div class="row mb-0 text-end">
+                  <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary m-1">
+                      Apply!
+                    </button>
+                    <button type="reset" class="btn btn-outline-secondary m-1">
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );
