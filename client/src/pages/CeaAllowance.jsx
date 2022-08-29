@@ -3,9 +3,10 @@ export default function CEAAllowance() {
     <>
       <div className="d-flex flex-column">
         <h1 className="p-2">CEA Allowance</h1>
-      </div>
-
-      <div className="d-flex flex-column">
+        <div className="row m-0 justify-content-center">
+          <div className="col-lg-10 col-md-10 col-12 rounded pb-3">
+          <div className="d-flex flex-column">
+            <h2 className="pb-2">Application Form</h2>
         <form class="needs-validation" novalidate>
           <div class="alert alert-danger d-none">
             Please review the problems below:
@@ -173,7 +174,7 @@ export default function CEAAllowance() {
             </div>
           </div>
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label for="exampleInputFriends" class="col-sm-3 col-form-label">
               Amount approved (in ₹)
             </label>
@@ -257,7 +258,7 @@ export default function CEAAllowance() {
                 (pdf, docx, jpg are acceptable formats)
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div class="row mb-3">
             <div class="col-sm-9 offset-sm-3">
@@ -281,19 +282,19 @@ export default function CEAAllowance() {
             </div>
           </div>
 
-                <div class="row mb-0 text-end">
-                  <div class="col-sm-9 offset-sm-3">
-                    <button type="submit" class="btn btn-primary m-1">
-                      Apply!
-                    </button>
-                    <button type="reset" class="btn btn-outline-secondary m-1">
-                      Cancel
-                    </button>
-                  </div>
-                </div>
-              </form>
+          <div class="row mb-0 text-end">
+            <div class="col-sm-9 offset-sm-3">
+              <button type="submit" class="btn btn-primary m-1">
+                Apply!
+              </button>
+              <button type="reset" class="btn btn-outline-secondary m-1">
+                Cancel
+              </button>
             </div>
           </div>
+        </form>
+      </div>  
+          </div> 
         </div>
       </div>
     </>

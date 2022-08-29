@@ -4,7 +4,7 @@ export default function FacultyRecruitment() {
       <div className="d-flex flex-column">
         <h1 className="p-2">Faculty Recruitment Portal</h1>
         <div className="row m-0 justify-content-center">
-          <div className="col-lg-10 col-md-10 col-12 p-2 rounded border shadow-sm">
+          <div className="col-lg-10 col-md-10 col-12 p-2 shadow-sm">
             <div className="d-flex flex-column m-3">
               <h2 className="text-center pb-3">Application Form</h2>
               <form class="needs-validation" novalidate>

@@ -2,10 +2,11 @@ export default function Medical() {
   return (
     <>
       <div className="d-flex flex-column">
-        <h1 className="p-2">Medcial Records</h1>
-      </div>
-
-      <div className="d-flex flex-column">
+        <h1 className="p-2">Medical Records</h1>
+        <div className="row m-0 p-2 justify-content-center">
+          <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
+          <div className="d-flex flex-column">
+            <h2 className="text-center">Details</h2>
         <form class="needs-validation" novalidate>
           <div class="alert alert-danger d-none">
             Please review the problems below:
@@ -122,7 +123,7 @@ export default function Medical() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineRadio4">
-                  Prefer Not Say
+                  Prefer not to say
                 </label>
               </div>
               <div class="invalid-feedback">Please provide a valid value.</div>
@@ -222,7 +223,7 @@ export default function Medical() {
 
           <div class="container">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 m-2">
                 <h3 class="text-center">Medical History</h3>
               </div>
             </div>
@@ -476,6 +477,9 @@ export default function Medical() {
             </div>
           </div>
         </form>
+      </div>
+          </div>
+        </div>
       </div>
     </>
   );
