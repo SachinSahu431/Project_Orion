@@ -9,6 +9,9 @@ import Visiting from "./pages/Visiting";
 import Training from "./pages/Training";
 import Profile from "./pages/Profile";
 import FacultyRecruitment from "./pages/FacultyRecruitment";
+import CeaAllowance from "./pages/CeaAllowance";
+import Payment from "./pages/Payment";
+import Performance from "./pages/Performance";
 import StaffRecruitment from "./pages/StaffRecruitment";
 
 const navHeight = 65;
@@ -133,12 +136,25 @@ export default function App() {
               <Route path="/home" element={<Home />}></Route>
               <Route path="/legal" element={<Legal />}></Route>
               <Route path="/staff_service" element={<StaffService />}></Route>
-              {/* <Route path="/staff_services/cea_allowance" element={<CEAAllowance/>}></Route>
-            <Route path="/staff_service/service_records" element={<ServiceRecords/>}></Route>
-            <Route path="/staff_service/attendance" element={<Attendance/>}></Route>
-            <Route path="/staff_service/payment" element={<Payment/>}></Route>
-            <Route path="/staff_service/performance" element={<Performance/>}></Route>
-            */}
+              <Route
+                path="/staff_services/cea_allowance"
+                element={<CeaAllowance />}
+              ></Route>
+
+              {/* <Route path="/staff_service/service_records" element={<ServiceRecords/>}></Route> */}
+
+              {/* <Route path="/staff_service/attendance" element={<Attendance/>}></Route> */}
+
+              <Route
+                path="/staff_service/payment"
+                element={<Payment />}
+              ></Route>
+
+              <Route
+                path="/staff_service/performance"
+                element={<Performance />}
+              ></Route>
+
               <Route path="/training" element={<Training />}></Route>
               <Route path="/profile" element={<Profile />}></Route>
               <Route

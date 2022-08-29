@@ -4,79 +4,7 @@ export default function FacultyRecruitment() {
       <div className="d-flex flex-column">
         <h1 className="p-2">Faculty Recruitment Portal</h1>
       </div>
-      <div className="d-flex flex-column">
-        <form class="needs-validation" novalidate>
-          <div class="alert alert-danger d-none">
-            Please review the problems below:
-          </div>
 
-          <div class="form-floating mb-3">
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail"
-              placeholder="Enter email"
-              autocomplete="email"
-              required
-            />
-            <label for="exampleInputEmail">Email</label>
-            <div class="invalid-feedback">Email can't be blank</div>
-            <div class="valid-feedback">Looks good!</div>
-            <div class="form-text">
-              We'll never share your email with anyone else.
-            </div>
-          </div>
-
-          <div class="form-floating mb-3">
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword"
-              placeholder="Password"
-              autocomplete="current-password"
-              required
-            />
-            <label for="exampleInputPassword">Password</label>
-            <div class="invalid-feedback">Please provide a valid value.</div>
-            <div class="valid-feedback">Looks good!</div>
-            <div class="form-text">Password input example</div>
-          </div>
-
-          <div class="form-floating mb-3">
-            <select class="form-select" id="exampleSelectLanguage" required>
-              <option value="">Select your Language</option>
-              <option value="en">English</option>
-              <option value="de">German</option>
-              <option value="es">Spanish</option>
-              <option value="ru">Russian</option>
-            </select>
-            <label for="exampleSelectLanguage">Language</label>
-            <div class="invalid-feedback">Please provide a valid value.</div>
-            <div class="valid-feedback">Looks good!</div>
-            <div class="form-text">Collection select example</div>
-          </div>
-
-          <div class="form-floating mb-3">
-            <textarea
-              class="form-control"
-              id="exampleTextareaBio"
-              placeholder="Tell us your story"
-              required
-            ></textarea>
-            <label for="exampleTextareaBio">Bio</label>
-            <div class="invalid-feedback">Please provide a valid value.</div>
-            <div class="valid-feedback">Looks good!</div>
-            <div class="form-text">Textarea input example</div>
-          </div>
-
-          <button type="submit" class="btn btn-primary">
-            Create User!
-          </button>
-          <button type="reset" class="btn btn-outline-secondary">
-            Cancel
-          </button>
-        </form>
-      </div>
       <div className="d-flex flex-column">
         <form class="needs-validation" novalidate>
           <div class="alert alert-danger d-none">
@@ -97,7 +25,7 @@ export default function FacultyRecruitment() {
               />
               <div class="invalid-feedback">Name can't be blank</div>
               <div class="valid-feedback">Looks good!</div>
-              <div class="form-text">Text input example</div>
+              <div class="form-text">Enter Name as on official documents</div>
             </div>
           </div>
 
@@ -143,7 +71,7 @@ export default function FacultyRecruitment() {
 
           <div class="row mb-3">
             <label for="exampleCustomFile" class="col-sm-3 col-form-label">
-              Avatar
+              Resume
             </label>
             <div class="col-sm-9">
               <input
@@ -154,7 +82,9 @@ export default function FacultyRecruitment() {
               />
               <div class="invalid-feedback">Please provide a valid value.</div>
               <div class="valid-feedback">Looks good!</div>
-              <div class="form-text">File input example</div>
+              <div class="form-text">
+                (pdf, docx, jpg are acceptable formats)
+              </div>
             </div>
           </div>
 
@@ -167,17 +97,17 @@ export default function FacultyRecruitment() {
                 class="form-control"
                 id="exampleTextareaBio"
                 rows="2"
-                placeholder="Tell us your story"
+                placeholder="Tell us more about yourself"
                 required
               ></textarea>
               <div class="invalid-feedback">Please provide a valid value.</div>
               <div class="valid-feedback">Looks good!</div>
-              <div class="form-text">Textarea input example</div>
+              <div class="form-text">Max limit 500 words</div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label class="col-sm-3 col-form-label">Birthday</label>
+            <label class="col-sm-3 col-form-label">DOB</label>
             <div class="col-sm-9">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <select
@@ -186,11 +116,13 @@ export default function FacultyRecruitment() {
                   required
                 >
                   <option></option>
-                  <option value="2013">2013</option>
-                  <option value="2014">2014</option>
-                  <option value="2015">2015</option>
-                  <option value="2016">2016</option>
-                  <option value="2017">2017</option>
+                  <option value="1970">1970</option>
+                  <option value="1971">1971</option>
+                  <option value="1972">1972</option>
+                  <option value="1973">1973</option>
+                  <option value="1974">1974</option>
+                  <option value="1975">1975</option>
+                  <option value="1980">1980</option>
                   <option value="2018">2018</option>
                   <option value="2019">2019</option>
                   <option value="2020">2020</option>
@@ -260,12 +192,12 @@ export default function FacultyRecruitment() {
               </div>
               <div class="invalid-feedback">Please provide a valid value.</div>
               <div class="valid-feedback">Looks good!</div>
-              <div class="form-text">Date multi select example</div>
+              <div class="form-text">Format: Year Month Day</div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label class="col-sm-3 col-form-label pt-0">Color</label>
+            <label class="col-sm-3 col-form-label pt-0">Subject</label>
             <div class="col-sm-9">
               <div class="form-check form-check-inline">
                 <input
@@ -277,7 +209,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineRadio1">
-                  Red
+                  Computer Science
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -290,7 +222,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineRadio2">
-                  Pink
+                  Mechanical
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -303,7 +235,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineRadio3">
-                  Violet
+                  Civil
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -316,7 +248,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineRadio4">
-                  Indigo
+                  Electrical
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -329,58 +261,19 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineRadio5">
-                  Blue
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="exampleInlineRadioColor"
-                  id="exampleInlineRadio6"
-                  value="option6"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineRadio6">
-                  Teal
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="exampleInlineRadioColor"
-                  id="exampleInlineRadio7"
-                  value="option7"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineRadio7">
-                  Green
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="exampleInlineRadioColor"
-                  id="exampleInlineRadio8"
-                  value="option8"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineRadio8">
-                  Yellow
+                  Other
                 </label>
               </div>
               <div class="invalid-feedback">Please provide a valid value.</div>
               <div class="valid-feedback">Looks good!</div>
-              <div class="form-text">
-                Collection as inline radio buttons example
-              </div>
+              <div class="form-text">Your subject of teaching</div>
             </div>
           </div>
 
           <div class="row mb-3">
-            <label class="col-sm-3 col-form-label pt-0">Fruit</label>
+            <label class="col-sm-3 col-form-label pt-0">
+              Educational Degrees
+            </label>
             <div class="col-sm-9">
               <div class="form-check form-check-inline">
                 <input
@@ -391,7 +284,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineCheckbox1">
-                  Apple
+                  BTech
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -403,7 +296,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineCheckbox2">
-                  Banana
+                  MTech
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -415,7 +308,7 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineCheckbox3">
-                  Cherry
+                  PHD
                 </label>
               </div>
               <div class="form-check form-check-inline">
@@ -427,88 +320,14 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleInlineCheckbox4">
-                  Coconut
+                  Doctoral
                 </label>
               </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="exampleInlineCheckbox5"
-                  value="option5"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineCheckbox5">
-                  Grape
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="exampleInlineCheckbox6"
-                  value="option6"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineCheckbox6">
-                  Lime
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="exampleInlineCheckbox7"
-                  value="option7"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineCheckbox7">
-                  Mango
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="exampleInlineCheckbox8"
-                  value="option8"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineCheckbox8">
-                  Orange
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="exampleInlineCheckbox9"
-                  value="option9"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineCheckbox9">
-                  Pear
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="exampleInlineCheckbox10"
-                  value="option10"
-                  required
-                />
-                <label class="form-check-label" for="exampleInlineCheckbox10">
-                  Pineapple
-                </label>
-              </div>
-              <div class="form-text">
-                Collection as inline check boxes example
-              </div>
+              <div class="form-text">Select all applicable options</div>
             </div>
           </div>
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label for="exampleSelectMusic" class="col-sm-3 col-form-label">
               Music
             </label>
@@ -533,9 +352,9 @@ export default function FacultyRecruitment() {
               <div class="valid-feedback">Looks good!</div>
               <div class="form-text">Collection multiple select example</div>
             </div>
-          </div>
+          </div> */}
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label for="exampleSelectLanguage" class="col-sm-3 col-form-label">
               Language
             </label>
@@ -586,9 +405,9 @@ export default function FacultyRecruitment() {
               <div class="valid-feedback">Looks good!</div>
               <div class="form-text">Collection as radio buttons example</div>
             </div>
-          </div>
+          </div> */}
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label class="col-sm-3 col-form-label pt-0">Choises</label>
             <div class="col-sm-9">
               <div class="form-check">
@@ -643,11 +462,11 @@ export default function FacultyRecruitment() {
               <div class="valid-feedback">Looks good!</div>
               <div class="form-text">Collection as check boxes example</div>
             </div>
-          </div>
+          </div> */}
 
           <div class="row mb-3">
             <label for="exampleInputFriends" class="col-sm-3 col-form-label">
-              Friends
+              Years of experience
             </label>
             <div class="col-sm-9">
               <input
@@ -663,7 +482,7 @@ export default function FacultyRecruitment() {
             </div>
           </div>
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label for="exampleRangeMood" class="col-sm-3 col-form-label pt-0">
               Mood
             </label>
@@ -678,9 +497,9 @@ export default function FacultyRecruitment() {
               <div class="valid-feedback">Looks good!</div>
               <div class="form-text">Integer range example</div>
             </div>
-          </div>
+          </div> */}
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Awake</label>
             <div class="col-sm-9">
               <div class="d-flex flex-row justify-content-between align-items-center">
@@ -730,9 +549,9 @@ export default function FacultyRecruitment() {
               <div class="valid-feedback">Looks good!</div>
               <div class="form-text">Time multi select example</div>
             </div>
-          </div>
+          </div> */}
 
-          <div class="row mb-3">
+          {/* <div class="row mb-3">
             <label class="col-sm-3 col-form-label">Time duration</label>
             <div class="col-sm-9">
               <div class="d-flex flex-row justify-content-between align-items-center">
@@ -856,10 +675,12 @@ export default function FacultyRecruitment() {
               </div>
               <div class="form-text">Datetime multi select example</div>
             </div>
-          </div>
+          </div> */}
 
           <div class="row mb-3">
-            <label class="col-sm-3 col-form-label pt-0">Active</label>
+            <label class="col-sm-3 col-form-label pt-0">
+              Do you accept the terms and conditions?
+            </label>
             <div class="col-sm-9">
               <div class="form-check">
                 <input
@@ -889,7 +710,6 @@ export default function FacultyRecruitment() {
               </div>
               <div class="invalid-feedback">Terms must be accepted</div>
               <div class="valid-feedback">Looks good!</div>
-              <div class="form-text">Boolean as radio button example</div>
             </div>
           </div>
 
@@ -904,11 +724,13 @@ export default function FacultyRecruitment() {
                   required
                 />
                 <label class="form-check-label" for="exampleCheckTerms">
-                  Terms
+                  Review and submit?
                 </label>
                 <div class="invalid-feedback">Terms must be accepted</div>
                 <div class="valid-feedback">Looks good!</div>
-                <div class="form-text">Boolean as check box example</div>
+                <div class="form-text">
+                  Please review again, no changes possible after this
+                </div>
               </div>
             </div>
           </div>
