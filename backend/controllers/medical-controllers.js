@@ -42,7 +42,7 @@ const getMedicalRecordByName = async (req, res, next) => {
 
   if (!medicalRecord) {
     const error = new HttpError(
-      "Could not find a Medical Record for the provided id.",
+      "Could not find a Medical Record for the provided name.",
       404
     );
     return next(error);
@@ -69,7 +69,7 @@ const getMedicalRecordByEmail = async (req, res, next) => {
 
   if (!medicalRecord) {
     const error = new HttpError(
-      "Could not find a Medical Record for the provided id.",
+      "Could not find a Medical Record for the provided email.",
       404
     );
     return next(error);
@@ -96,7 +96,7 @@ const getMedicalRecordByPhone = async (req, res, next) => {
 
   if (!medicalRecord) {
     const error = new HttpError(
-      "Could not find a Medical Record for the provided id.",
+      "Could not find a Medical Record for the provided phone number.",
       404
     );
     return next(error);

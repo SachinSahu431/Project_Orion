@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const ceaAllowanceSchema = new mongoose.Schema({
-  ceauniqueid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,

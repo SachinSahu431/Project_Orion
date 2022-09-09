@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const facultySchema = new mongoose.Schema({
-  uniqueid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -45,6 +41,7 @@ const facultySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // the department names have to be specific. only then will the database work fine
   facultyType: {
     type: String,
     required: true,

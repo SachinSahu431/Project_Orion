@@ -44,7 +44,7 @@ const getPerformanceRecordByName = async (req, res, next) => {
 
   if (!performanceRecord) {
     const error = new HttpError(
-      "Could not find a performance Record for the provided id.",
+      "Could not find a performance Record for the provided name.",
       404
     );
     return next(error);
@@ -71,7 +71,7 @@ const getPerformanceRecordByEmail = async (req, res, next) => {
 
   if (!performanceRecord) {
     const error = new HttpError(
-      "Could not find a performance Record for the provided id.",
+      "Could not find a performance Record for the provided email.",
       404
     );
     return next(error);
@@ -98,7 +98,7 @@ const getPerformanceRecordByPhone = async (req, res, next) => {
 
   if (!performanceRecord) {
     const error = new HttpError(
-      "Could not find a performance Record for the provided id.",
+      "Could not find a performance Record for the provided phone number.",
       404
     );
     return next(error);

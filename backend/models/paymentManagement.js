@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const paymentManagementSchema = new mongoose.Schema({
-  paymentuniqueid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -44,6 +40,12 @@ const paymentManagementSchema = new mongoose.Schema({
     type: Buffer,
   },
   otherReimbusements: {
+    type: Number,
+  },
+  approvedOrNot: {
+    type: Boolean,
+  },
+  amountApproved: {
     type: Number,
   },
 });
