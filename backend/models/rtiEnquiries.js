@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const rtiEnquirySchema = new mongoose.Schema({
-  rtiuniqueid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -25,6 +21,9 @@ const rtiEnquirySchema = new mongoose.Schema({
     type: String,
     required: true,
   }, // whether administrative, financial, medical etc.
+  queryResponse: {
+    type: String,
+  },
 });
 
 const rtiEnquiry = mongoose.model("rti", rtiEnquirySchema);

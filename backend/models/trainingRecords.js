@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const trainingRecordSchema = new mongoose.Schema({
-  traininguniqueid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,

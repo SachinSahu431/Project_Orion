@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const propertyReturnSchema = new mongoose.Schema({
-  propertyuniqueid: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -25,12 +21,17 @@ const propertyReturnSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  propertyReturnFile: {
-    type: Buffer,
-  },
-  filename: {
-    type: String,
-  },
+
+  returnHistory: [
+    {
+      propertyReturnFile: {
+        type: Buffer,
+      },
+      dateOfSubmission: {
+        type: String,
+      },
+    },
+  ],
 });
 
 const propertyReturn = mongoose.model("property", propertyReturnSchema);
