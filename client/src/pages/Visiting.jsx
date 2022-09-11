@@ -1,4 +1,4 @@
-import user from "../static/images/user.png";
+// import user from "../static/images/user.png";
 
 export default function Visiting() {
   return (

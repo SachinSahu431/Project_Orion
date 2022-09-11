@@ -14,6 +14,7 @@ import Payment from "./pages/Payment";
 import Performance from "./pages/Performance";
 import Medical from "./pages/Medical";
 import StaffRecruitment from "./pages/StaffRecruitment";
+import ServiceRecords from "./pages/ServiceRecords";
 
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
@@ -134,10 +135,7 @@ export default function App() {
               </Link>
             </ul>
           </div>
-          <div
-            className="col-10 p-2"
-            style={{ height: contentHeight }}
-          >
+          <div className="col-10 p-2" style={{ height: contentHeight }}>
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/home" element={<Home />}></Route>
@@ -148,7 +146,10 @@ export default function App() {
                 element={<CeaAllowance />}
               ></Route>
 
-              {/* <Route path="/staff_service/service_records" element={<ServiceRecords/>}></Route> */}
+              <Route
+                path="/staff_service/service_records"
+                element={<ServiceRecords />}
+              ></Route>
 
               {/* <Route path="/staff_service/attendance" element={<Attendance/>}></Route> */}
 

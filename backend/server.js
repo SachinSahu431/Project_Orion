@@ -1,3 +1,7 @@
+// To do:
+// Remove the harcoded dates and genders from all forms.
+// Support file upload feature to the database
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
