@@ -136,7 +136,7 @@ export default function App() {
           </div>
           <div
             className="col-10 p-2"
-            style={{ overflowY: "scroll", height: contentHeight }}
+            style={{ height: contentHeight }}
           >
             <Routes>
               <Route path="/" element={<Home />}></Route>
