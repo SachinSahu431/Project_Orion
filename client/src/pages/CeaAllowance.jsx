@@ -2,11 +2,75 @@ export default function CEAAllowance() {
   return (
     <>
       <div className="d-flex flex-column">
-        <h1 className="p-2">CEA Allowance</h1>
+        <h3 className="p-2">CEA Allowance</h3>
+        <div className="row m-0 p-3">
+        <h4>Actions</h4>
+        <div className="col-lg-6 col-12">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Apply for CEA Allowance</h5>
+              <p>
+                Fill the form and submit an application for CEA Allowance.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="col-lg-6 col-12">
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">View Previous Applications</h5>
+              <p>View the status of your previous applications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="col-lg-10 col-md-10 col-12 p-2 rounded p-2">
+        <div className="d-flex flex-column">
+          <h5>View your previous applications.</h5>
+          <div className="py-2">
+            <div className="card">
+              <div className="card-header d-flex">
+                <span className="fw-bold flex-fill">Application ID: #1298332</span>
+                <span className="fw-bold ms-auto text-success">●</span>
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">Details regarding the application</h5>
+                <p>Status: Processed</p>
+              </div>
+            </div>
+          </div>
+          <div className="py-2">
+            <div className="card">
+              <div className="card-header d-flex">
+                <span className="fw-bold flex-fill">Application ID: #1298333</span>
+                <span className="fw-bold ms-auto text-primary">●</span>
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">Application under processing.</h5>
+                <p>Status: Queued</p>
+              </div>
+              
+            </div>
+          </div>
+          <div className="py-2">
+            <div className="card">
+              <div className="card-header d-flex">
+                <span className="fw-bold flex-fill">Application ID: #1298334</span>
+                <span className="fw-bold ms-auto text-danger">●</span>
+              </div>
+              <div className="card-body">
+                <h5 className="card-title">Rejected Application.</h5>
+                <p>Status: Rejected</p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
         <div className="row m-0 justify-content-center">
           <div className="col-lg-10 col-md-10 col-12 rounded pb-3">
           <div className="d-flex flex-column">
-            <h2 className="pb-2">Application Form</h2>
+            <h5 className="pb-2">Application Form</h5>
         <form class="needs-validation" novalidate>
           <div class="alert alert-danger d-none">
             Please review the problems below:

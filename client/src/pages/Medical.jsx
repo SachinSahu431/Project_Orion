@@ -54,7 +54,6 @@ export default function Medical() {
             <div className="d-flex flex-column">
               <h2 className="text-center">Details</h2>
               <>
-                {/* <form class="needs-validation" novalidate> */}
                 <div class="alert alert-danger d-none">
                   Please review the problems below:
                 </div>

@@ -1,7 +1,7 @@
-export default function Training() {
+export default function ServiceRecords() {
   return (
     <div className="d-flex flex-column">
-      <h3>Training Management</h3>
+      <h3>Staff Service Records</h3>
       <div className="row m-0 p-3">
         <h4>Actions</h4>
         <div className="col-lg-6 col-12">
@@ -27,7 +27,7 @@ export default function Training() {
       <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
         <div className="d-flex flex-column">
           <h4 className="text-center mb-3">Create A New Record</h4>
-          <h5 className="text-start">Personal Details of the Trainee</h5>
+          <h5 className="text-start">Personal Details of the Staff Member</h5>
           <div class="row mb-3">
             <label for="exampleInputName" class="col-sm-3 col-form-label">
               Name
@@ -272,17 +272,17 @@ export default function Training() {
               <div class="valid-feedback">Looks good!</div>
             </div>
           </div>
-          <h5 className="text-start mt-2">Training Details</h5>
+          <h5 className="text-start mt-2">Staff Service Summary</h5>
           <div class="row mt-2 mb-3">
             <label for="exampleInputName" class="col-sm-3 col-form-label">
-              Training Summary
+              Staff Service Summary
             </label>
             <div class="col-sm-9">
               <textarea
                 class="form-control"
                 id="exampleInputName"
-                placeholder="Training Summary"
-                name="training_summary"
+                placeholder="Staff Service Summary"
+                name="staff_service_summary"
                 required
               />
               <div class="invalid-feedback">Applicant Details!</div>
@@ -291,13 +291,13 @@ export default function Training() {
           </div>
           <div class="row mb-3">
             <label for="exampleCustomFile" class="col-sm-3 col-form-label">
-              Training Details
+              Staff Member Details
             </label>
             <div class="col-sm-9">
               <input
                 type="file"
                 class="form-control"
-                id="Training_Details"
+                id="Staff Member Details"
                 required
               />
               <div class="invalid-feedback">Please provide a valid value.</div>
@@ -340,17 +340,17 @@ export default function Training() {
               </div>
             </div>
           </div>
-          <h5 className="text-start mt-2">Training Details</h5>
+          <h5 className="text-start mt-2">Staff Service Summary</h5>
           <div class="row mt-2 mb-3">
             <label for="exampleInputName" class="col-sm-3 col-form-label">
-              Training Summary
+              Staff Service Summary
             </label>
             <div class="col-sm-9">
               <textarea
                 class="form-control"
                 id="exampleInputName"
-                placeholder="Training Summary"
-                name="training_summary"
+                placeholder="Staff Service Summary"
+                name="staff_service_summary"
                 required
               />
               <div class="invalid-feedback">Applicant Details!</div>
@@ -359,13 +359,13 @@ export default function Training() {
           </div>
           <div class="row mb-3">
             <label for="exampleCustomFile" class="col-sm-3 col-form-label">
-              Training Details
+              Staff Member Details
             </label>
             <div class="col-sm-9">
               <input
                 type="file"
                 class="form-control"
-                id="Training_Details"
+                id="Staff Member Details"
                 required
               />
               <div class="invalid-feedback">Please provide a valid value.</div>
@@ -392,8 +392,7 @@ export default function Training() {
             <div className="card">
               <div className="card-header">
                 <span>
-                  Siddhartha G,{" "}
-                  <span className="text-muted fw-bold">CS20B040</span>
+                  Siddhartha G, <span className="text-muted fw-bold">CS20B040</span>
                 </span>
               </div>
               <div className="card-body">
