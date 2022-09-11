@@ -8,7 +8,7 @@
 
 
 # env file
-# /backend/config.env
+config.env
 
 # testing
 /coverage
