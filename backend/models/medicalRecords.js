@@ -45,7 +45,7 @@ const medicalRecordSchema = new mongoose.Schema({
         type: Number,
       },
       medicalFile: {
-        type: Buffer,
+        type: String,
       },
     },
   ],

@@ -1,7 +1,7 @@
 export default function StaffRecruitment() {
   return (
     <>
-       <div className="d-flex flex-column">
+      <div className="d-flex flex-column">
         <h1 className="p-2">Staff Recruitment Portal</h1>
         <div className="row m-0 justify-content-center">
           <div className="col-lg-10 col-md-10 col-12 p-2 shadow-sm">
@@ -13,7 +13,10 @@ export default function StaffRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label for="exampleInputName" class="col-sm-3 col-form-label fw-bold">
+                  <label
+                    for="exampleInputName"
+                    class="col-sm-3 col-form-label fw-bold"
+                  >
                     Name
                   </label>
                   <div class="col-sm-9">
@@ -220,7 +223,9 @@ export default function StaffRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label fw-bold pt-0">Subject</label>
+                  <label class="col-sm-3 col-form-label fw-bold pt-0">
+                    Subject
+                  </label>
                   <div class="col-sm-9">
                     <div class="form-check form-check-inline">
                       <input

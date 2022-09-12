@@ -265,7 +265,9 @@ export default function Legal() {
                 </div>
                 <div class="row mb-0 mt-2">
                   <div class="col-sm-9 offset-sm-3 text-end">
-                    <button class="btn btn-primary me-2">Approve Response</button>
+                    <button class="btn btn-primary me-2">
+                      Approve Response
+                    </button>
                     <button type="reset" class="btn btn-outline-secondary">
                       Cancel
                     </button>

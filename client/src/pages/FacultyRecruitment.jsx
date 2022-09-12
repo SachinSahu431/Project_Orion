@@ -13,7 +13,10 @@ export default function FacultyRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label for="exampleInputName" class="col-sm-3 col-form-label fw-bold">
+                  <label
+                    for="exampleInputName"
+                    class="col-sm-3 col-form-label fw-bold"
+                  >
                     Name
                   </label>
                   <div class="col-sm-9">
@@ -220,7 +223,9 @@ export default function FacultyRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label fw-bold pt-0">Subject</label>
+                  <label class="col-sm-3 col-form-label fw-bold pt-0">
+                    Subject
+                  </label>
                   <div class="col-sm-9">
                     <div class="form-check form-check-inline">
                       <input
