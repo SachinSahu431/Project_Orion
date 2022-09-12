@@ -10,6 +10,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
+    "firebase": "^9.9.4",
     "mongoose": "^6.5.3",
     "nth-check": "^2.1.1",
     "react": "^18.2.0",

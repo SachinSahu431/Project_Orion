@@ -37,7 +37,7 @@ const paymentManagementSchema = new mongoose.Schema({
     type: Number,
   },
   medicalReimbusementFile: {
-    type: Buffer,
+    type: String,
   },
   otherReimbusements: {
     type: Number,

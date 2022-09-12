@@ -25,7 +25,7 @@ const propertyReturnSchema = new mongoose.Schema({
   returnHistory: [
     {
       propertyReturnFile: {
-        type: Buffer,
+        type: String,
       },
       dateOfSubmission: {
         type: String,
