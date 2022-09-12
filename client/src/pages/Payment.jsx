@@ -1,4 +1,67 @@
+import { useState } from "react";
+import axios from "axios";
+import { storage } from "../storage/base";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 export default function Payment() {
+  const [paymentRecord, setPaymentRecord] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    gender: "",
+    dateOfBirth: "",
+    leaveEncashment: "",
+    ltc: "",
+    temporaryAdvances: "",
+    medicalReimbusement: "",
+    travelReimbusement: "",
+    medicalReimbusementFile: "",
+    otherReimbusements: "",
+    approvedOrNot: "",
+    amountApproved: "",
+  });
+
+  const [url, setUrl] = useState(null);
+
+  const handleInputs = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setPaymentRecord({ ...paymentRecord, [name]: value });
+  };
+
+  const handleChangeInputFile = (e) => {
+    const file = e.target.files[0];
+    let newFile = "PaymentRecord/" + file.name;
+    const fileRef = ref(storage, newFile);
+
+    uploadBytes(fileRef, file).then((snapshot) => {
+      console.log("Uploaded a file");
+      getDownloadURL(snapshot.ref).then((url) => {
+        console.log(url);
+        setUrl(url);
+      });
+    });
+  };
+
+  const handleSubmit = async () => {
+    let currentRecord = paymentRecord;
+
+    try {
+      await axios.post(
+        `http://localhost:5000//api/payment/create`,
+        currentRecord
+      );
+
+      console.log("posted");
+
+      window.alert("Your record is updated");
+    } catch (e) {
+      window.alert("Error try again later");
+      console.log(e);
+    }
+  };
+
   return (
     <>
       <div className="d-flex flex-column">
@@ -18,9 +81,12 @@ export default function Payment() {
                   <div class="col-sm-9">
                     <input
                       type="text"
+                      name="name"
                       class="form-control"
                       id="exampleInputName"
                       placeholder="Your name"
+                      value={paymentRecord.name}
+                      onChange={handleInputs}
                       required
                     />
                     <div class="invalid-feedback">Name can't be blank</div>
@@ -41,10 +107,13 @@ export default function Payment() {
                   <div class="col-sm-9">
                     <input
                       type="email"
+                      name="email"
                       class="form-control"
                       id="exampleInputEmail"
                       placeholder="Enter email"
                       autocomplete="email"
+                      value={paymentRecord.email}
+                      onChange={handleInputs}
                       required
                     />
                     <div class="invalid-feedback">Email can't be blank</div>
@@ -65,6 +134,9 @@ export default function Payment() {
                       class="form-control"
                       id="exampleInputName"
                       placeholder="Your Phone number"
+                      name="phone"
+                      value={paymentRecord.phone}
+                      onChange={handleInputs}
                       required
                     />
                     <div class="invalid-feedback">
@@ -244,6 +316,9 @@ export default function Payment() {
                       class="form-control"
                       id="exampleInputFriends"
                       placeholder="Amount in rupees (₹)"
+                      name="leaveEncashment"
+                      value={paymentRecord.leaveEncashment}
+                      onChange={handleInputs}
                       required
                     />
                     <div class="invalid-feedback">
@@ -266,6 +341,9 @@ export default function Payment() {
                       class="form-control"
                       id="exampleInputFriends"
                       placeholder="Amount in rupees (₹)"
+                      name="amountApproved"
+                      value={paymentRecord.amountApproved}
+                      onChange={handleInputs}
                       required
                     />
                     <div class="invalid-feedback">

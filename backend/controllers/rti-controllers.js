@@ -56,6 +56,7 @@ const getRtiRecordByName = async (req, res, next) => {
     ),
   });
 };
+
 const getRtiRecordByEmail = async (req, res, next) => {
   const email = req.params.email;
   let rtiRecord;

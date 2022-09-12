@@ -5,7 +5,7 @@ export default function Performance() {
         <h1 className="p-2">Staff Performance Management</h1>
       </div>
 
-      {/* <div className="d-flex flex-column">
+      <div className="d-flex flex-column">
         <form class="needs-validation" novalidate>
           <div class="alert alert-danger d-none">
             Please review the problems below:
@@ -356,8 +356,8 @@ export default function Performance() {
               </button>
             </div>
           </div>
-        </form> 
-      </div>*/}
+        </form>
+      </div>
     </>
   );
 }

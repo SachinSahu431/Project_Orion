@@ -15,7 +15,6 @@ router.get(
   paymentControllers.getPaymentRecordByApproved
 );
 router.put("/update", paymentControllers.updatePaymentRecord);
-
 router.post("/create", paymentControllers.createPaymentRecord);
 
 module.exports = router;

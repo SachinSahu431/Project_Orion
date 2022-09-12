@@ -15,11 +15,9 @@ const paymentManagementSchema = new mongoose.Schema({
   },
   gender: {
     type: String,
-    required: true,
   },
   dateOfBirth: {
     type: String,
-    required: true,
   },
   leaveEncashment: {
     type: Number,
