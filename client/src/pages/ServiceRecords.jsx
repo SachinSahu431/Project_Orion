@@ -43,11 +43,38 @@ export default function Service() {
   return (
     <>
       <div className="d-flex flex-column">
-        <h1 className="p-2">Service Records</h1>
+        <h3 className="p-2">Service Records</h3>
+        <div className="row m-0 p-3">
+          <h4>Actions</h4>
+          <div className="col-lg-6 col-12">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">
+                  Create or Append to Service Record!
+                </h5>
+                <p>
+                  Fill the necessary details for creating or appending to the
+                  service record.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6 col-12">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">View Your Service Record</h5>
+                <p>View your service record</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="row m-0 p-2 justify-content-center">
           <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
             <div className="d-flex flex-column">
-              <h2 className="text-center">Details</h2>
+              <h4 className="text-center mb-3">
+                Create Employee Service Record
+              </h4>
+              <h5 className="text-start">Details of Employee</h5>
               <>
                 <form class="needs-validation" novalidate>
                   <div class="alert alert-danger d-none">
@@ -55,18 +82,15 @@ export default function Service() {
                   </div>
 
                   <div class="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      class="col-sm-3 col-form-label"
-                    >
-                      Name
+                    <label for="sr-name" class="col-sm-3 col-form-label">
+                      Employee Name
                     </label>
                     <div class="col-sm-9">
                       <input
                         type="text"
                         name="name"
                         class="form-control"
-                        id="exampleInputName"
+                        id="sr-name"
                         placeholder="Your name"
                         value={serviceRecord.name}
                         onChange={handleInputs}
@@ -81,25 +105,24 @@ export default function Service() {
                   </div>
 
                   <div class="row mb-3">
-                    <label
-                      for="exampleInputEmail"
-                      class="col-sm-3 col-form-label"
-                    >
-                      Email
+                    <label for="sr-email" class="col-sm-3 col-form-label">
+                      Email Address
                     </label>
                     <div class="col-sm-9">
                       <input
                         type="email"
                         name="email"
                         class="form-control"
-                        id="exampleInputEmail"
-                        placeholder="Enter email"
+                        id="sr-email"
+                        placeholder="Enter your email address"
                         autocomplete="email"
                         value={serviceRecord.email}
                         onChange={handleInputs}
                         required
                       />
-                      <div class="invalid-feedback">Email can't be blank</div>
+                      <div class="invalid-feedback">
+                        Email address can't be blank
+                      </div>
                       <div class="valid-feedback">Looks good!</div>
                       <div class="form-text">
                         We'll never share your email with anyone else.
@@ -108,17 +131,14 @@ export default function Service() {
                   </div>
 
                   <div class="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      class="col-sm-3 col-form-label"
-                    >
-                      Phone
+                    <label for="sr-phone" class="col-sm-3 col-form-label">
+                      Mobile Number
                     </label>
                     <div class="col-sm-9">
                       <input
                         type="text"
                         class="form-control"
-                        id="exampleInputName"
+                        id="sr-phone"
                         placeholder="Your Phone number"
                         name="phone"
                         value={serviceRecord.phone}
@@ -142,15 +162,12 @@ export default function Service() {
                         <input
                           class="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
-                          id="exampleInlineRadio1"
+                          name="sr-male"
+                          id="sr-male"
                           value="option1"
                           required
                         />
-                        <label
-                          class="form-check-label"
-                          for="exampleInlineRadio1"
-                        >
+                        <label class="form-check-label" for="sr-male">
                           Male
                         </label>
                       </div>
@@ -158,15 +175,12 @@ export default function Service() {
                         <input
                           class="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
-                          id="exampleInlineRadio2"
+                          name="sr-female"
+                          id="sr-female"
                           value="option2"
                           required
                         />
-                        <label
-                          class="form-check-label"
-                          for="exampleInlineRadio2"
-                        >
+                        <label class="form-check-label" for="sr-female">
                           Female
                         </label>
                       </div>
@@ -174,15 +188,12 @@ export default function Service() {
                         <input
                           class="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
-                          id="exampleInlineRadio3"
+                          name="sr-other"
+                          id="sr-other"
                           value="option3"
                           required
                         />
-                        <label
-                          class="form-check-label"
-                          for="exampleInlineRadio3"
-                        >
+                        <label class="form-check-label" for="sr-other">
                           Other
                         </label>
                       </div>
@@ -190,15 +201,12 @@ export default function Service() {
                         <input
                           class="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
-                          id="exampleInlineRadio4"
+                          name="sr-no"
+                          id="sr-no"
                           value="option4"
                           required
                         />
-                        <label
-                          class="form-check-label"
-                          for="exampleInlineRadio4"
-                        >
+                        <label class="form-check-label" for="sr-no">
                           Prefer not to say
                         </label>
                       </div>
@@ -213,11 +221,7 @@ export default function Service() {
                     <label class="col-sm-3 col-form-label">DOB</label>
                     <div class="col-sm-9">
                       <div class="d-flex flex-row justify-content-between align-items-center">
-                        <select
-                          id="exampleInputDateYear"
-                          class="form-select me-1"
-                          required
-                        >
+                        <select id="sr-year" class="form-select me-1" required>
                           <option></option>
                           <option value="1970">1970</option>
                           <option value="1971">1971</option>
@@ -234,11 +238,7 @@ export default function Service() {
                           <option value="2023">2023</option>
                         </select>
 
-                        <select
-                          id="exampleInputDateMonth"
-                          class="form-select mx-1"
-                          required
-                        >
+                        <select id="sr-month" class="form-select mx-1" required>
                           <option></option>
                           <option value="1">January</option>
                           <option value="2">February</option>
@@ -254,11 +254,7 @@ export default function Service() {
                           <option value="12">December</option>
                         </select>
 
-                        <select
-                          id="exampleInputDateDay"
-                          class="form-select ms-1"
-                          required
-                        >
+                        <select id="sr-day" class="form-select ms-1" required>
                           <option></option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -301,25 +297,22 @@ export default function Service() {
                     </div>
                   </div>
 
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-12 m-2">
-                        <h3 class="text-center">Records</h3>
+                  <div>
+                    <div class="row m-0">
+                      <div class="col-md-12 m-0 p-0">
+                        <h5 className="text-start">Record of the employee</h5>
                       </div>
                     </div>
 
                     <div class="row mb-3">
-                      <label
-                        for="exampleInputName"
-                        class="col-sm-3 col-form-label"
-                      >
-                        Record
+                      <label for="sr-record" class="col-sm-3 col-form-label">
+                        Record Entry
                       </label>
                       <div class="col-sm-9">
                         <input
                           type="text"
                           class="form-control"
-                          id="exampleInputName"
+                          id="sr-record"
                           placeholder="Record history"
                           name="record"
                           value={eServiceRecord.record}
@@ -332,18 +325,15 @@ export default function Service() {
                     </div>
 
                     <div class="row mb-3">
-                      <label
-                        for="exampleInputName"
-                        class="col-sm-3 col-form-label"
-                      >
+                      <label for="sr-job" class="col-sm-3 col-form-label">
                         Job Description
                       </label>
                       <div class="col-sm-9">
                         <input
                           type="text"
                           class="form-control"
-                          id="exampleInputName"
-                          placeholder="Job Description of the record"
+                          id="sr-job"
+                          placeholder="Job Description of the employee"
                           name="jobDescription"
                           value={eServiceRecord.jobDescription}
                           onChange={handleInputsHistory}
@@ -362,10 +352,10 @@ export default function Service() {
                           class="form-check-input"
                           type="checkbox"
                           value=""
-                          id="exampleCheckTerms"
+                          id="sr-terms"
                           required
                         />
-                        <label class="form-check-label" for="exampleCheckTerms">
+                        <label class="form-check-label" for="sr-terms">
                           Review and submit?
                         </label>
                         <div class="invalid-feedback">
@@ -378,16 +368,187 @@ export default function Service() {
                       </div>
                     </div>
                   </div>
-
                   <div class="row mb-0">
-                    <div class="col-sm-9 offset-sm-3">
+                    <div class="col-sm-9 offset-sm-3 text-end">
                       <button
-                        type="submit"
-                        class="btn btn-primary"
+                        class="btn btn-primary me-2"
                         onClick={handleSubmit}
                       >
                         Submit
                       </button>
+                      <button type="reset" class="btn btn-outline-secondary">
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </>
+            </div>
+          </div>
+          {/* Append Record */}
+          <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
+            <div className="d-flex flex-column p-3 rounded border shadow-sm">
+              <h4 className="text-center">Your Record</h4>
+              <div className="row m-0 mb-2">
+                <div className="col-sm-3"><span className="fw-bold">Full Name</span></div>
+                <div className="col-sm-9"><span>Siddhartha G</span></div>
+              </div>
+              <div className="row m-0 mb-2">
+                <div className="col-sm-3"><span className="fw-bold">Date of Birth</span></div>
+                <div className="col-sm-9"><span>18/91/2023</span></div>
+              </div>
+              <div className="row m-0 mb-2">
+                <div className="col-sm-3"><span className="fw-bold">Gender</span></div>
+                <div className="col-sm-9"><span>Male</span></div>
+              </div>
+              <div className="row m-0 mb-2">
+                <div className="col-sm-3"><span className="fw-bold">Email Address</span></div>
+                <div className="col-sm-9"><span>SiddharthaG@gmail.com</span></div>
+              </div>
+              <div className="row m-0 mb-2">
+                <div className="col-sm-3"><span className="fw-bold">Phone Number</span></div>
+                <div className="col-sm-9"><span>987543211</span></div>
+              </div>
+              <div className="row m-0 mt-3">
+                <div className="col-sm-3"><span className="fw-bold fs-6">Records</span></div>
+              </div>
+              <div className="row m-0 ms-2 mt-1">
+                <div className="col-12">
+                  <span className="fw-bold">Description:</span> <span>DDSDFAS</span>
+                  <p className="fw-bold m-0">Record Entry:</p>
+                  <p>Loreasdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
+            <div className="d-flex flex-column">
+              <h4 className="text-center mb-3">
+                Append Employee Service Record
+              </h4>
+              <h5 className="text-start">Details of Employee</h5>
+              <>
+                <form class="needs-validation" novalidate>
+                  <div class="alert alert-danger d-none">
+                    Please review the problems below:
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="sr-name" class="col-sm-3 col-form-label">
+                      Employee Name
+                    </label>
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        id="sr-name"
+                        placeholder="Your name"
+                        required
+                      />
+                      <div class="invalid-feedback">Name can't be blank</div>
+                      <div class="valid-feedback">Looks good!</div>
+                      <div class="form-text">
+                        Enter Name as on official documents
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="sr-email" class="col-sm-3 col-form-label">
+                      Email Address
+                    </label>
+                    <div class="col-sm-9">
+                      <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        id="sr-email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Email address can't be blank
+                      </div>
+                      <div class="valid-feedback">Looks good!</div>
+                      <div class="form-text">
+                        We'll never share your email with anyone else.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="row m-0">
+                      <div class="col-md-12 m-0 p-0">
+                        <h5 className="text-start">Record of the employee</h5>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="sr-record" class="col-sm-3 col-form-label">
+                        Record Entry
+                      </label>
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="sr-record"
+                          placeholder="Record history"
+                          name="record"
+                          required
+                        />
+                        <div class="invalid-feedback">Name can't be blank</div>
+                        <div class="valid-feedback">Looks good!</div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <label for="sr-job" class="col-sm-3 col-form-label">
+                        Job Description
+                      </label>
+                      <div class="col-sm-9">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="sr-job"
+                          placeholder="Job Description of the employee"
+                          name="jobDescription"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Job Description can't be blank
+                        </div>
+                        <div class="valid-feedback">Looks good!</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-9 offset-sm-3">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="sr-terms"
+                          required
+                        />
+                        <label class="form-check-label" for="sr-terms">
+                          Review and submit?
+                        </label>
+                        <div class="invalid-feedback">
+                          Terms must be accepted
+                        </div>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="form-text">
+                          Please review again, no changes possible after this
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-0">
+                    <div class="col-sm-9 offset-sm-3 text-end">
+                      <button class="btn btn-primary me-2">Append</button>
                       <button type="reset" class="btn btn-outline-secondary">
                         Cancel
                       </button>
