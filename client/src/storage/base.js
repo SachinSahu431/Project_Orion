@@ -2,7 +2,47 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  /*paste here*/
+  /*
+
+  /////////////////////////
+  /////////////////////////
+
+
+
+    paste it here
+
+    Example:
+
+    apiKey: ,
+
+
+    authDomain: ,
+
+
+    projectId: ,
+
+
+    storageBucket: ,
+
+
+    messagingSenderId: ,
+
+
+
+    appId: ,
+
+
+    
+    measurementId: ,
+
+
+
+
+
+    ////////////////////////////
+    ///////////////////////////
+
+ */
 };
 
 const app = initializeApp(firebaseConfig);
