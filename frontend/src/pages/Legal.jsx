@@ -1,3 +1,6 @@
+
+
+
 export default function Legal() {
   return (
     <div className="d-flex flex-column">
