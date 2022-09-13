@@ -1,23 +1,49 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Service() {
   //------------------------------------------------------------------------------------//
-  const [switchstate,setswitchstate]  = useState(false);
+  const [switchstate, setswitchstate] = useState(false);
   const [loadedServiceRecords, setLoadedServiceRecords] = useState([]);
   const [phoneNum, setPhoneNum] = useState("");
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/service/phone/${phoneNum}`)
-      .then((res) => {
-        const responsetools = res.data;
-        console.log(responsetools);
-        setLoadedServiceRecords(responsetools);
-        //console.log(loadedServiceRecords);
-      })
-      .catch(error => {
-        console.log(error.response)
-    });
+    const sendGetRequest = async () => {
+      try {
+        const resp = await axios.get(
+          `http://localhost:5000/api/service/phone/${phoneNum}`
+        );
+        const responsetools = resp.data;
+        //console.log(responsetools);
+        const posts = [];
+        for (const key in responsetools) {
+          posts.push({ ...responsetools[key], id: key });
+        }
+        //console.log(posts);
+        setLoadedServiceRecords(posts);
+        console.log(loadedServiceRecords);
+      } catch (err) {
+        // Handle Error Here
+        console.error(err);
+      }
+    };
+
+    sendGetRequest();
+    //axios
+    //     .get(`http://localhost:5000/api/service/phone/${phoneNum}`)
+    //     .then((res) => {
+    //       const responsetools = res.data;
+    //       //console.log(responsetools);
+    //       // const posts = [];
+    //       // for (const key in responsetools) {
+    //       //   posts.push({...responsetools[key], id: key});
+    //       // }
+    //       //console.log(posts);
+    //       setLoadedServiceRecords(responsetools);
+    //       console.log(loadedServiceRecords);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error.response);
+    //     });
   }, [switchstate]);
   //------------------------------------------------------------------------------------//
   const [serviceRecord, setServiceRecord] = useState({
@@ -59,9 +85,15 @@ export default function Service() {
   };
   //------------------------------------------------------------------------------//
   return (
-  
     <>
-       <div className="container-fluid mt-5">
+      {loadedServiceRecords &&
+        (loadedServiceRecords.map((blog) => (
+          <div key={blog.id}>
+            <h1>{blog[0].name}</h1>
+          </div>
+        )))}
+
+      <div className="container-fluid mt-5">
         <div className="row justify-content-center">
           <div className="col-lg-6 border border-2 rounded shadow-sm searchBox">
             <form className="row g-3 m-2">
@@ -76,7 +108,11 @@ export default function Service() {
                 />
               </div>
               <div className="mb-3 w-100 text-end">
-                <button type="button" className="btn btn-primary" onClick ={()=>setswitchstate((switchstate)=> !switchstate)}>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => setswitchstate((switchstate) => !switchstate)}
+                >
                   <i className="bi bi-search p-2"></i>Search
                 </button>
               </div>
@@ -84,7 +120,6 @@ export default function Service() {
           </div>
         </div>
       </div>
-
 
       <div className="d-flex flex-column">
         <h3 className="p-2">Service Records</h3>
@@ -434,33 +469,58 @@ export default function Service() {
             <div className="d-flex flex-column p-3 rounded border shadow-sm">
               <h4 className="text-center">Your Record</h4>
               <div className="row m-0 mb-2">
-                <div className="col-sm-3"><span className="fw-bold">Full Name</span></div>
-                <div className="col-sm-9"><span>Siddhartha G</span></div>
+                <div className="col-sm-3">
+                  <span className="fw-bold">Full Name</span>
+                </div>
+                <div className="col-sm-9">
+                  <span>Siddhartha G</span>
+                </div>
               </div>
               <div className="row m-0 mb-2">
-                <div className="col-sm-3"><span className="fw-bold">Date of Birth</span></div>
-                <div className="col-sm-9"><span>18/91/2023</span></div>
+                <div className="col-sm-3">
+                  <span className="fw-bold">Date of Birth</span>
+                </div>
+                <div className="col-sm-9">
+                  <span>18/91/2023</span>
+                </div>
               </div>
               <div className="row m-0 mb-2">
-                <div className="col-sm-3"><span className="fw-bold">Gender</span></div>
-                <div className="col-sm-9"><span>Male</span></div>
+                <div className="col-sm-3">
+                  <span className="fw-bold">Gender</span>
+                </div>
+                <div className="col-sm-9">
+                  <span>Male</span>
+                </div>
               </div>
               <div className="row m-0 mb-2">
-                <div className="col-sm-3"><span className="fw-bold">Email Address</span></div>
-                <div className="col-sm-9"><span>SiddharthaG@gmail.com</span></div>
+                <div className="col-sm-3">
+                  <span className="fw-bold">Email Address</span>
+                </div>
+                <div className="col-sm-9">
+                  <span>SiddharthaG@gmail.com</span>
+                </div>
               </div>
               <div className="row m-0 mb-2">
-                <div className="col-sm-3"><span className="fw-bold">Phone Number</span></div>
-                <div className="col-sm-9"><span>987543211</span></div>
+                <div className="col-sm-3">
+                  <span className="fw-bold">Phone Number</span>
+                </div>
+                <div className="col-sm-9">
+                  <span>987543211</span>
+                </div>
               </div>
               <div className="row m-0 mt-3">
-                <div className="col-sm-3"><span className="fw-bold fs-6">Records</span></div>
+                <div className="col-sm-3">
+                  <span className="fw-bold fs-6">Records</span>
+                </div>
               </div>
               <div className="row m-0 ms-2 mt-1">
                 <div className="col-12">
-                  <span className="fw-bold">Description:</span> <span>DDSDFAS</span>
+                  <span className="fw-bold">Description:</span>{" "}
+                  <span>DDSDFAS</span>
                   <p className="fw-bold m-0">Record Entry:</p>
-                  <p>Loreasdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</p>
+                  <p>
+                    Loreasdfadsfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+                  </p>
                 </div>
               </div>
             </div>
