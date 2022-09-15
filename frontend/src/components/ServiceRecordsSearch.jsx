@@ -77,7 +77,7 @@ export default function ServiceRecordsSearch() {
               <th style={{ border: "2px solid blue" }}>Record</th>
               <th style={{ border: "2px solid blue" }}>Job Desc</th>
             </tr>
-            {/* {loadedServiceRecords.eServiceRecord.map(fillTable)} */}
+            {loadedServiceRecords.eServiceRecord.map(fillTable)}
           </table>
         </>
       )}
