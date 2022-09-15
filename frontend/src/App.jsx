@@ -15,8 +15,6 @@ import Performance from "./pages/Performance";
 import Medical from "./pages/Medical";
 import StaffRecruitment from "./pages/StaffRecruitment";
 import ServiceRecords from "./pages/ServiceRecords";
-import ServiceRecordsCreate from "./pages/ServiceRecordsCreate";
-import ServiceRecordsSearch from "./pages/ServiceRecordsSearch";
 
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
@@ -151,20 +149,20 @@ export default function App() {
                 path="/staff_service/create"
                 element={<ServiceRecords />}
               ></Route>
-              
+
               <Route
                 path="/staff_service/service_records"
                 element={<ServiceRecords />}
               ></Route>
 
-              <Route
+              {/* <Route
                 path="/staff_service/service_records/create"
                 element={<ServiceRecordsCreate/>}
               ></Route>
               <Route
                 path="/staff_service/service_records/search"
                 element={<ServiceRecordsSearch/>}
-              ></Route>
+              ></Route> */}
               {/* <Route path="/staff_service/attendance" element={<Attendance/>}></Route> */}
 
               <Route
