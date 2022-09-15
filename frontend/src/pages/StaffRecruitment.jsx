@@ -15,7 +15,7 @@ export default function StaffRecruitment() {
                 <div class="row mb-3">
                   <label
                     for="exampleInputName"
-                    class="col-sm-3 col-form-label fw-bold"
+                    class="col-sm-3 col-form-label"
                   >
                     Name
                   </label>
@@ -38,7 +38,7 @@ export default function StaffRecruitment() {
                 <div class="row mb-3">
                   <label
                     for="exampleInputEmail"
-                    class="col-sm-3 col-form-label fw-bold"
+                    class="col-sm-3 col-form-label"
                   >
                     Email
                   </label>
@@ -62,7 +62,7 @@ export default function StaffRecruitment() {
                 <div class="row mb-3">
                   <label
                     for="exampleInputPassword"
-                    class="col-sm-3 col-form-label fw-bold"
+                    class="col-sm-3 col-form-label"
                   >
                     Password
                   </label>
@@ -86,7 +86,7 @@ export default function StaffRecruitment() {
                 <div class="row mb-3">
                   <label
                     for="exampleCustomFile"
-                    class="col-sm-3 col-form-label fw-bold"
+                    class="col-sm-3 col-form-label"
                   >
                     Resume
                   </label>
@@ -110,7 +110,7 @@ export default function StaffRecruitment() {
                 <div class="row mb-3">
                   <label
                     for="exampleTextareaBio"
-                    class="col-sm-3 col-form-label fw-bold"
+                    class="col-sm-3 col-form-label"
                   >
                     Bio
                   </label>
@@ -131,7 +131,7 @@ export default function StaffRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label fw-bold">DOB</label>
+                  <label class="col-sm-3 col-form-label">DOB</label>
                   <div class="col-sm-9">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                       <select
@@ -223,7 +223,7 @@ export default function StaffRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label fw-bold pt-0">
+                  <label class="col-sm-3 col-form-label pt-0">
                     Subject
                   </label>
                   <div class="col-sm-9">
@@ -301,7 +301,7 @@ export default function StaffRecruitment() {
                 </div>
 
                 <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label fw-bold pt-0">
+                  <label class="col-sm-3 col-form-label pt-0">
                     Educational Degrees
                   </label>
                   <div class="col-sm-9">
@@ -370,7 +370,7 @@ export default function StaffRecruitment() {
                 </div>
 
                 {/* <div class="row mb-3">
-            <label for="exampleSelectMusic" class="col-sm-3 col-form-label fw-bold">
+            <label for="exampleSelectMusic" class="col-sm-3 col-form-label">
               Music
             </label>
             <div class="col-sm-9">
@@ -397,7 +397,7 @@ export default function StaffRecruitment() {
           </div> */}
 
                 {/* <div class="row mb-3">
-            <label for="exampleSelectLanguage" class="col-sm-3 col-form-label fw-bold">
+            <label for="exampleSelectLanguage" class="col-sm-3 col-form-label">
               Language
             </label>
             <div class="col-sm-9">
@@ -415,7 +415,7 @@ export default function StaffRecruitment() {
           </div>
 
           <div class="row mb-3">
-            <label class="col-sm-3 col-form-label fw-bold pt-0">Pill</label>
+            <label class="col-sm-3 col-form-label pt-0">Pill</label>
             <div class="col-sm-9">
               <div class="form-check">
                 <input
@@ -450,7 +450,7 @@ export default function StaffRecruitment() {
           </div> */}
 
                 {/* <div class="row mb-3">
-            <label class="col-sm-3 col-form-label fw-bold pt-0">Choises</label>
+            <label class="col-sm-3 col-form-label pt-0">Choises</label>
             <div class="col-sm-9">
               <div class="form-check">
                 <input
@@ -509,7 +509,7 @@ export default function StaffRecruitment() {
                 <div class="row mb-3">
                   <label
                     for="exampleInputFriends"
-                    class="col-sm-3 col-form-label fw-bold"
+                    class="col-sm-3 col-form-label"
                   >
                     Years of experience
                   </label>
@@ -530,7 +530,7 @@ export default function StaffRecruitment() {
                 </div>
 
                 {/* <div class="row mb-3">
-            <label for="exampleRangeMood" class="col-sm-3 col-form-label fw-bold pt-0">
+            <label for="exampleRangeMood" class="col-sm-3 col-form-label pt-0">
               Mood
             </label>
             <div class="col-sm-9">
@@ -547,7 +547,7 @@ export default function StaffRecruitment() {
           </div> */}
 
                 {/* <div class="row mb-3">
-            <label class="col-sm-3 col-form-label fw-bold">Awake</label>
+            <label class="col-sm-3 col-form-label">Awake</label>
             <div class="col-sm-9">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <select
@@ -599,7 +599,7 @@ export default function StaffRecruitment() {
           </div> */}
 
                 {/* <div class="row mb-3">
-            <label class="col-sm-3 col-form-label fw-bold">Time duration</label>
+            <label class="col-sm-3 col-form-label">Time duration</label>
             <div class="col-sm-9">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <select
@@ -725,7 +725,7 @@ export default function StaffRecruitment() {
           </div> */}
 
                 <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label fw-bold pt-0">
+                  <label class="col-sm-3 col-form-label pt-0">
                     Do you accept the terms and conditions?
                   </label>
                   <div class="col-sm-9">
