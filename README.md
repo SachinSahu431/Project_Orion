@@ -31,6 +31,7 @@ npm install
 ```
 nodemon server
 ```
+---
 
 #### **Run the frontend:**
 
@@ -52,9 +53,11 @@ Website will be live at http://localhost:3000/
 
 ---
 
-## Presentation & Code Explaination
+## Presentation & Demo
 
-Preseentation slides are available here : [TEAM_5](https://github.com/SachinSahu431)
+Preseentation slides are available here : [TEAM_5_SLIDES](https://docs.google.com/presentation/d/1jSRZp-iUr1g7BPbUXBzdDAfRfSfGKZlzbpiaFv1GU7o/edit?usp=sharing)
+
+Demo video is available here: [TEAM_5_VIDEO](https://youtu.be/nSvs_fCd2fY)
 
 ## Meet the Team:
 
