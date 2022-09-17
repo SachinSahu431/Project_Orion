@@ -10,6 +10,7 @@ router.get("/name/:name", rtiControllers.getRtiRecordByName);
 router.get("/email/:email", rtiControllers.getRtiRecordByEmail);
 
 router.get("/phone/:phone", rtiControllers.getRtiRecordByPhone);
+
 router.get("/type/:type", rtiControllers.getRtiRecordByQueryType);
 
 router.put("/update", rtiControllers.updateRtiRecord);
