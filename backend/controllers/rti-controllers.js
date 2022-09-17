@@ -117,8 +117,10 @@ const getRtiRecordByQueryType = async (req, res, next) => {
   let rtiRecord;
   try {
     rtiRecord = await rti.find({ queryType: type });
-  } catch (err) {
-    const error = new HttpError(
+  } 
+  catch (err) {
+    const error = new HttpError
+    (
       "Something went wrong could not find rti Record",
       500
     );
