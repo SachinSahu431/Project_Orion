@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 export default function RTIForm() {
   const [rtiRecord, setRtiRecord] = useState({
     name: "",
@@ -18,12 +19,25 @@ export default function RTIForm() {
 
   const handleSubmit = async () => {
     let temp = rtiRecord;
+    try{
+      await axios.post(`http://localhost:5000/api/rti/create`, temp);
 
-    await axios.post(`http://localhost:5000/api/rti/create`, temp);
-
-    window.alert("Your Rti-record is updated");
-    window.location.reload();
-    console.log("posted");
+      console.log("posted");
+        await Swal.fire({
+          icon: "success",
+          title: "Details Updated",
+        });
+        window.location.reload();
+      console.log("posted");
+    }
+    catch(e){
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
+      console.log(e);
+    }
   };
 
   //Write your code here
