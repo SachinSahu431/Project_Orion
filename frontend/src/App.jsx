@@ -15,6 +15,8 @@ import Performance from "./pages/Performance";
 import Medical from "./pages/Medical";
 import StaffRecruitment from "./pages/StaffRecruitment";
 import ServiceRecords from "./pages/ServiceRecords";
+import RTIForm from "./components/RTIForm";
+import RTIView from "./components/RTIView";
 
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
@@ -40,7 +42,7 @@ export default function App() {
             <div className="my-auto ms-2">
               <button className="btn btn-dark-outline fs-5 rounded-5 border">
                 <Link to="/profile">
-                  <i class="bi bi-person"></i>
+                  <i className="bi bi-person"></i>
                 </Link>
               </button>
             </div>
@@ -139,7 +141,11 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />}></Route>
               <Route path="/home" element={<Home />}></Route>
+
               <Route path="/legal" element={<Legal />}></Route>
+              <Route path="/legal/rti/create" element={<RTIForm />}></Route> 
+              <Route path="/legal/rti/view" element={<RTIView />}></Route>
+              
               <Route path="/staff_service" element={<StaffService />}></Route>
               <Route
                 path="/staff_services/cea_allowance"
