@@ -97,46 +97,46 @@ export default function MedicalRecordsCreate() {
             <div className="d-flex flex-column">
               <h2 className="text-center">Details</h2>
               <>
-                {/* <form class="needs-validation" novalidate> */}
-                <div class="alert alert-danger d-none">
+                {/* <form className="needs-validation" novalidate> */}
+                <div className="alert alert-danger d-none">
                   Please review the problems below:
                 </div>
 
-                <div class="row mb-3">
-                  <label for="exampleInputName" class="col-sm-3 col-form-label">
+                <div className="row mb-3">
+                  <label for="exampleInputName" className="col-sm-3 col-form-label">
                     Name
                   </label>
-                  <div class="col-sm-9">
+                  <div className="col-sm-9">
                     <input
                       type="text"
                       name="name"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputName"
                       placeholder="Your name"
                       value={medicalRecord.name}
                       onChange={handleInputs}
                       required
                     />
-                    <div class="invalid-feedback">Name can't be blank</div>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="form-text">
+                    <div className="invalid-feedback">Name can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="form-text">
                       Enter Name as on official documents
                     </div>
                   </div>
                 </div>
 
-                <div class="row mb-3">
+                <div className="row mb-3">
                   <label
                     for="exampleInputEmail"
-                    class="col-sm-3 col-form-label"
+                    className="col-sm-3 col-form-label"
                   >
                     Email
                   </label>
-                  <div class="col-sm-9">
+                  <div className="col-sm-9">
                     <input
                       type="email"
                       name="email"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputEmail"
                       placeholder="Enter email"
                       autocomplete="email"
@@ -144,22 +144,22 @@ export default function MedicalRecordsCreate() {
                       onChange={handleInputs}
                       required
                     />
-                    <div class="invalid-feedback">Email can't be blank</div>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="form-text">
+                    <div className="invalid-feedback">Email can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="form-text">
                       We'll never share your email with anyone else.
                     </div>
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label for="exampleInputName" class="col-sm-3 col-form-label">
+                <div className="row mb-3">
+                  <label for="exampleInputName" className="col-sm-3 col-form-label">
                     Phone
                   </label>
-                  <div class="col-sm-9">
+                  <div className="col-sm-9">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputName"
                       placeholder="Your Phone number"
                       name="phone"
@@ -167,22 +167,22 @@ export default function MedicalRecordsCreate() {
                       onChange={handleInputs}
                       required
                     />
-                    <div class="invalid-feedback">
+                    <div className="invalid-feedback">
                       Phone Number can't be blank
                     </div>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="form-text">
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="form-text">
                       Put country code before your phone number
                     </div>
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label pt-0">Gender</label>
-                  <div class="col-sm-9">
-                    <div class="form-check form-check-inline">
+                <div className="row mb-3">
+                  <label className="col-sm-3 col-form-label pt-0">Gender</label>
+                  <div className="col-sm-9">
+                    <div className="form-check form-check-inline">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         id="exampleInlineRadio1"
                         name="gender"
@@ -190,13 +190,13 @@ export default function MedicalRecordsCreate() {
                         onChange={handleInputs}
                         required
                       />
-                      <label class="form-check-label" for="exampleInlineRadio1">
+                      <label className="form-check-label" for="exampleInlineRadio1">
                         Male
                       </label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="gender"
                         id="exampleInlineRadio2"
@@ -204,13 +204,13 @@ export default function MedicalRecordsCreate() {
                         onChange={handleInputs}
                         required
                       />
-                      <label class="form-check-label" for="exampleInlineRadio2">
+                      <label className="form-check-label" for="exampleInlineRadio2">
                         Female
                       </label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="gender"
                         id="exampleInlineRadio3"
@@ -218,13 +218,13 @@ export default function MedicalRecordsCreate() {
                         value="Other"
                         required
                       />
-                      <label class="form-check-label" for="exampleInlineRadio3">
+                      <label className="form-check-label" for="exampleInlineRadio3">
                         Other
                       </label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div className="form-check form-check-inline">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="gender"
                         id="exampleInlineRadio4"
@@ -232,20 +232,20 @@ export default function MedicalRecordsCreate() {
                         onChange={handleInputs}
                         required
                       />
-                      <label class="form-check-label" for="exampleInlineRadio4">
+                      <label className="form-check-label" for="exampleInlineRadio4">
                         Prefer not to say
                       </label>
                     </div>
-                    <div class="invalid-feedback">
+                    <div className="invalid-feedback">
                       Please provide a valid value.
                     </div>
-                    <div class="valid-feedback">Looks good!</div>
+                    <div className="valid-feedback">Looks good!</div>
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label class="col-sm-3 col-form-label">DOB</label>
-                  <div class="col-sm-9">
+                <div className="row mb-3">
+                  <label className="col-sm-3 col-form-label">DOB</label>
+                  <div className="col-sm-9">
                     <DatePicker
                       calendarAriaLabel="Toggle calendar"
                       clearAriaLabel="Clear value"
@@ -261,91 +261,91 @@ export default function MedicalRecordsCreate() {
                       format="dd-MM-y"
                       maxDate={new Date()}
                     />
-                    <div class="invalid-feedback">
+                    <div className="invalid-feedback">
                       Please provide a valid value.
                     </div>
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="form-text">Format: Day Month Year</div>
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="form-text">Format: Day Month Year</div>
                   </div>
                 </div>
 
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-12 m-2">
-                      <h3 class="text-center">Medical History</h3>
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-12 m-2">
+                      <h3 className="text-center">Medical History</h3>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleInputName"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Diagnosis
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputName"
                         placeholder="Diagnosis name"
                         name="diagnosis"
                         value={medicalHistory.diagnosis}
                         onChange={handleInputsHistory}
                       />
-                      <div class="invalid-feedback">Name can't be blank</div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleInputName"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Referred Physician
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputName"
                         placeholder="Name of doctor"
                         name="referredPhysician"
                         value={medicalHistory.referredPhysician}
                         onChange={handleInputsHistory}
                       />
-                      <div class="invalid-feedback">Name can't be blank</div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleInputName"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Referred Clinic
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputName"
                         placeholder="Name of the Clinic"
                         name="referredClinic"
                         value={medicalHistory.referredClinic}
                         onChange={handleInputsHistory}
                       />
-                      <div class="invalid-feedback">Name can't be blank</div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">Date</label>
-                    <div class="col-sm-9">
-                      <div class="d-flex flex-row justify-content-between align-items-center">
+                  <div className="row mb-3">
+                    <label className="col-sm-3 col-form-label">Date</label>
+                    <div className="col-sm-9">
+                      <div className="d-flex flex-row justify-content-between align-items-center">
                         <DatePicker
                           calendarAriaLabel="Toggle calendar"
                           clearAriaLabel="Clear value"
@@ -362,137 +362,137 @@ export default function MedicalRecordsCreate() {
                           maxDate={new Date()}
                         />
                       </div>
-                      <div class="invalid-feedback">
+                      <div className="invalid-feedback">
                         Please provide a valid value.
                       </div>
-                      <div class="valid-feedback">Looks good!</div>
-                      <div class="form-text">Format: Day Month Year</div>
+                      <div className="valid-feedback">Looks good!</div>
+                      <div className="form-text">Format: Day Month Year</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleInputName"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Severity
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputName"
                         name="severity"
                         value={medicalHistory.severity}
                         onChange={handleInputsHistory}
                       />
-                      <div class="invalid-feedback">Name can't be blank</div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleInputName"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Other Info
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputName"
                         name="otherInfo"
                         value={medicalHistory.otherInfo}
                         onChange={handleInputsHistory}
                       />
-                      <div class="invalid-feedback">Name can't be blank</div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleInputFriends"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Payment Amount (in ₹)
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="number"
-                        class="form-control"
+                        className="form-control"
                         id="exampleInputFriends"
                         placeholder="Amount in rupees (₹)"
                         name="paymentAmount"
                         value={medicalHistory.paymentAmount}
                         onChange={handleInputsHistory}
                       />
-                      <div class="invalid-feedback">
+                      <div className="invalid-feedback">
                         Please provide a valid value.
                       </div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
+                  <div className="row mb-3">
                     <label
                       for="exampleCustomFile"
-                      class="col-sm-3 col-form-label"
+                      className="col-sm-3 col-form-label"
                     >
                       Upload Medical File
                     </label>
-                    <div class="col-sm-9">
+                    <div className="col-sm-9">
                       <input
                         type="file"
-                        class="form-control"
+                        className="form-control"
                         id="Upload file"
                         onChange={handleChangeInputFile}
                       />
-                      <div class="invalid-feedback">
+                      <div className="invalid-feedback">
                         Please provide a valid value.
                       </div>
-                      <div class="valid-feedback">Looks good!</div>
-                      <div class="form-text">
+                      <div className="valid-feedback">Looks good!</div>
+                      <div className="form-text">
                         (pdf, docx, jpg are acceptable formats)
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <div class="col-sm-9 offset-sm-3">
-                    <div class="form-check">
+                <div className="row mb-3">
+                  <div className="col-sm-9 offset-sm-3">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="exampleCheckTerms"
                         required
                       />
-                      <label class="form-check-label" for="exampleCheckTerms">
+                      <label className="form-check-label" for="exampleCheckTerms">
                         Review and submit?
                       </label>
-                      <div class="invalid-feedback">Terms must be accepted</div>
-                      <div class="valid-feedback">Looks good!</div>
-                      <div class="form-text">
+                      <div className="invalid-feedback">Terms must be accepted</div>
+                      <div className="valid-feedback">Looks good!</div>
+                      <div className="form-text">
                         Please review again, no changes possible after this
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="row mb-0">
-                  <div class="col-sm-9 offset-sm-3">
+                <div className="row mb-0">
+                  <div className="col-sm-9 offset-sm-3">
                     <button
                       type="submit"
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                       onClick={handleSubmit}
                     >
                       Submit
                     </button>
-                    <button type="reset" class="btn btn-outline-secondary">
+                    <button type="reset" className="btn btn-outline-secondary">
                       Cancel
                     </button>
                   </div>
