@@ -1,61 +1,31 @@
-import { useState } from "react";
-import axios from "axios";
-import CeaAllowanceApplication from "../components/CeaAllowanceApplication";
-import ChooseCard from "../components/ChooseCard";
-import CeaPreviousApplications from "../components/CeaPreviousApplications";
+import { Link } from "react-router-dom";
 
+/*
+  Submodule to handle CEA Allowance page.
+*/
 export default function CEAAllowance() {
-  const [status, setStatus] = useState(0);
-
-  const renderBody = () => {
-    if (status == 1) {
-      return <CeaAllowanceApplication />;
-    } else if (status == 2) {
-      return <CeaPreviousApplications />;
-    }
-  };
-
   return (
-    <>
-      <div className="d-flex flex-column">
-        <h3 className="p-2">CEA Allowance</h3>
-        <div className="row m-0 p-3">
-          <h4>Actions</h4>
-
-          <div
-            className="col-lg-6 col-12"
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              setStatus(1);
-            }}
-          >
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Apply for CEA Allowance</h5>
-                <p>
-                  Fill the form and submit an application for CEA Allowance.
-                </p>
-              </div>
+    <div className="d-flex flex-column">
+      <div className="row m-0 p-1">
+        <h3 className="ps-2 p-1">CEA Allowance</h3>
+        <h4>Actions</h4>
+        <div className="col-lg-6 col-12">
+          <Link to="/staff_service/cea_allowance/applyform" className="card btn text-start">
+            <div className="card-body">
+              <h5 className="card-title">Apply for CEA Allowance</h5>
+              <p>Fill the form and submit an application for CEA Allowance.</p>
             </div>
-          </div>
-          <div
-            className="col-lg-6 col-12"
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              setStatus(2);
-            }}
-          >
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">View Previous Applications</h5>
-                <p>View the status of your previous applications.</p>
-              </div>
+          </Link>
+        </div>
+        <div className="col-lg-6 col-12">
+          <Link to="/staff_service/cea_allowance/searchform" className="card btn text-start">
+            <div className="card-body">
+              <h5 className="card-title">View Previous Applications</h5>
+              <p>View the status of your previous applications.</p>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
-
-      {status != 0 ? renderBody() : <></>}
-    </>
+    </div>
   );
 }
