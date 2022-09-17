@@ -17,6 +17,8 @@ import StaffRecruitment from "./pages/StaffRecruitment";
 import ServiceRecords from "./pages/ServiceRecords";
 import RTIForm from "./components/RTIForm";
 import RTIView from "./components/RTIView";
+import CeaAllowanceForm from "./components/CEAAllowanceForm";
+import CEAAllowancePrevApplication from "./components/CEAAllowancePrevApplications";
 
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
@@ -145,11 +147,18 @@ export default function App() {
               <Route path="/legal" element={<Legal />}></Route>
               <Route path="/legal/rti/create" element={<RTIForm />}></Route> 
               <Route path="/legal/rti/view" element={<RTIView />}></Route>
-              
               <Route path="/staff_service" element={<StaffService />}></Route>
               <Route
                 path="/staff_services/cea_allowance"
                 element={<CeaAllowance />}
+              ></Route>
+              <Route 
+                path="/staff_service/cea_allowance/applyform"
+                element={<CeaAllowanceForm/>}
+              ></Route>
+              <Route 
+                path="/staff_service/cea_allowance/searchform"
+                element={<CEAAllowancePrevApplication/>}
               ></Route>
               <Route
                 path="/staff_service/create"

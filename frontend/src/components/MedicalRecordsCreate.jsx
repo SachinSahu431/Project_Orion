@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { storage } from "../storage/base";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import DatePicker from "react-date-picker";
+import moment from "moment";
+import Swal from "sweetalert2";
 
 export default function MedicalRecordsCreate() {
   const [medicalRecord, setMedicalRecord] = useState({
@@ -22,6 +25,9 @@ export default function MedicalRecordsCreate() {
     paymentAmount: "",
     medicalFile: "",
   });
+
+  const [dob, setDob] = useState();
+  const [medicalDate, setMedicalDate] = useState();
 
   const [url, setUrl] = useState(null);
 
@@ -56,22 +62,28 @@ export default function MedicalRecordsCreate() {
   const handleSubmit = async () => {
     let currentRecord = medicalRecord;
     currentRecord.medicalHistory = [medicalHistory];
-    currentRecord.dateOfBirth = "04092022";
-    currentRecord.gender = "male";
-    currentRecord.medicalHistory[0].medicalFile = url;
+    currentRecord.dateOfBirth = moment(dob).format("DD/MM/YYYY");
 
+    currentRecord.medicalHistory[0].medicalFile = url;
+    currentRecord.medicalHistory[0].date =
+      moment(medicalDate).format("DD/MM/YYYY");
     try {
       await axios.post(
         `http://localhost:5000/api/medical/create`,
         currentRecord
       );
-
       console.log("posted");
-
-      window.alert("Your record is updated");
+      await Swal.fire({
+        icon: "success",
+        title: "Details Updated",
+      });
       window.location.reload();
     } catch (e) {
-      window.alert("Error try again later");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
       console.log(e);
     }
   };
@@ -172,9 +184,10 @@ export default function MedicalRecordsCreate() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="exampleInlineRadioColor"
                         id="exampleInlineRadio1"
-                        value="option1"
+                        name="gender"
+                        value="Male"
+                        onChange={handleInputs}
                         required
                       />
                       <label className="form-check-label" for="exampleInlineRadio1">
@@ -185,9 +198,10 @@ export default function MedicalRecordsCreate() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="exampleInlineRadioColor"
+                        name="gender"
                         id="exampleInlineRadio2"
-                        value="option2"
+                        value="Female"
+                        onChange={handleInputs}
                         required
                       />
                       <label className="form-check-label" for="exampleInlineRadio2">
@@ -198,9 +212,10 @@ export default function MedicalRecordsCreate() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="exampleInlineRadioColor"
+                        name="gender"
                         id="exampleInlineRadio3"
-                        value="option3"
+                        onChange={handleInputs}
+                        value="Other"
                         required
                       />
                       <label className="form-check-label" for="exampleInlineRadio3">
@@ -211,9 +226,10 @@ export default function MedicalRecordsCreate() {
                       <input
                         className="form-check-input"
                         type="radio"
-                        name="exampleInlineRadioColor"
+                        name="gender"
                         id="exampleInlineRadio4"
-                        value="option4"
+                        value="Prefer not to say"
+                        onChange={handleInputs}
                         required
                       />
                       <label className="form-check-label" for="exampleInlineRadio4">
@@ -230,92 +246,26 @@ export default function MedicalRecordsCreate() {
                 <div className="row mb-3">
                   <label className="col-sm-3 col-form-label">DOB</label>
                   <div className="col-sm-9">
-                    <div className="d-flex flex-row justify-content-between align-items-center">
-                      <select
-                        id="exampleInputDateYear"
-                        className="form-select me-1"
-                        required
-                      >
-                        <option></option>
-                        <option value="1970">1970</option>
-                        <option value="1971">1971</option>
-                        <option value="1972">1972</option>
-                        <option value="1973">1973</option>
-                        <option value="1974">1974</option>
-                        <option value="1975">1975</option>
-                        <option value="1980">1980</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                      </select>
-
-                      <select
-                        id="exampleInputDateMonth"
-                        className="form-select mx-1"
-                        required
-                      >
-                        <option></option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                      </select>
-
-                      <select
-                        id="exampleInputDateDay"
-                        className="form-select ms-1"
-                        required
-                      >
-                        <option></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                      </select>
-                    </div>
+                    <DatePicker
+                      calendarAriaLabel="Toggle calendar"
+                      clearAriaLabel="Clear value"
+                      dayPlaceholder="DD"
+                      monthPlaceholder="MM"
+                      yearPlaceholder="YYYY"
+                      dayAriaLabel="Day"
+                      monthAriaLabel="Month"
+                      onChange={setDob}
+                      value={dob}
+                      nativeInputAriaLabel="Date"
+                      yearAriaLabel="Year"
+                      format="dd-MM-y"
+                      maxDate={new Date()}
+                    />
                     <div className="invalid-feedback">
                       Please provide a valid value.
                     </div>
                     <div className="valid-feedback">Looks good!</div>
-                    <div className="form-text">Format: Year Month Day</div>
+                    <div className="form-text">Format: Day Month Year</div>
                   </div>
                 </div>
 
@@ -396,88 +346,27 @@ export default function MedicalRecordsCreate() {
                     <label className="col-sm-3 col-form-label">Date</label>
                     <div className="col-sm-9">
                       <div className="d-flex flex-row justify-content-between align-items-center">
-                        <select
-                          id="exampleInputDateYear"
-                          className="form-select me-1"
-                        >
-                          <option></option>
-                          <option value="1970">1970</option>
-                          <option value="1971">1971</option>
-                          <option value="1972">1972</option>
-                          <option value="1973">1973</option>
-                          <option value="1974">1974</option>
-                          <option value="1975">1975</option>
-                          <option value="1980">1980</option>
-                          <option value="2018">2018</option>
-                          <option value="2019">2019</option>
-                          <option value="2020">2020</option>
-                          <option value="2021">2021</option>
-                          <option value="2022">2022</option>
-                          <option value="2023">2023</option>
-                        </select>
-
-                        <select
-                          id="exampleInputDateMonth"
-                          className="form-select mx-1"
-                        >
-                          <option></option>
-                          <option value="1">January</option>
-                          <option value="2">February</option>
-                          <option value="3">March</option>
-                          <option value="4">April</option>
-                          <option value="5">May</option>
-                          <option value="6">June</option>
-                          <option value="7">July</option>
-                          <option value="8">August</option>
-                          <option value="9">September</option>
-                          <option value="10">October</option>
-                          <option value="11">November</option>
-                          <option value="12">December</option>
-                        </select>
-
-                        <select
-                          id="exampleInputDateDay"
-                          className="form-select ms-1"
-                        >
-                          <option></option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                          <option value="13">13</option>
-                          <option value="14">14</option>
-                          <option value="15">15</option>
-                          <option value="16">16</option>
-                          <option value="17">17</option>
-                          <option value="18">18</option>
-                          <option value="19">19</option>
-                          <option value="20">20</option>
-                          <option value="21">21</option>
-                          <option value="22">22</option>
-                          <option value="23">23</option>
-                          <option value="24">24</option>
-                          <option value="25">25</option>
-                          <option value="26">26</option>
-                          <option value="27">27</option>
-                          <option value="28">28</option>
-                          <option value="29">29</option>
-                          <option value="30">30</option>
-                          <option value="31">31</option>
-                        </select>
+                        <DatePicker
+                          calendarAriaLabel="Toggle calendar"
+                          clearAriaLabel="Clear value"
+                          dayPlaceholder="DD"
+                          monthPlaceholder="MM"
+                          yearPlaceholder="YYYY"
+                          dayAriaLabel="Day"
+                          monthAriaLabel="Month"
+                          onChange={setMedicalDate}
+                          value={medicalDate}
+                          nativeInputAriaLabel="Date"
+                          yearAriaLabel="Year"
+                          format="dd-MM-y"
+                          maxDate={new Date()}
+                        />
                       </div>
                       <div className="invalid-feedback">
                         Please provide a valid value.
                       </div>
                       <div className="valid-feedback">Looks good!</div>
-                      <div className="form-text">Format: Year Month Day</div>
+                      <div className="form-text">Format: Day Month Year</div>
                     </div>
                   </div>
 
