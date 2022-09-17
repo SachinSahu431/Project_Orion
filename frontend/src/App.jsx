@@ -40,7 +40,7 @@ export default function App() {
             <div className="my-auto ms-2">
               <button className="btn btn-dark-outline fs-5 rounded-5 border">
                 <Link to="/profile">
-                  <i class="bi bi-person"></i>
+                  <i className="bi bi-person"></i>
                 </Link>
               </button>
             </div>
