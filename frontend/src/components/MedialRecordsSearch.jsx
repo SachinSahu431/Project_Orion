@@ -3,10 +3,9 @@ import axios from "axios";
 import DetailsCard from "./DetailsCard";
 
 export default function MedicalRecordsSearch() {
-  const [switchstate, setswitchstate] = useState(false);
+
   const [loadedMedicalRecords, setLoadedMedicalRecords] = useState();
   const [eMail, setEMail] = useState("");
-  const [records, setRecords] = useState();
 
   const sendGetRequest = async () => {
     try {
