@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export default function CEAAllowancePrevApplication() {
   return (
     <div className="d-flex flex-column">
-      <div className="row m-0 p-1">
+      <div className="row m-0 p-1 position-sticky top-0 bg-white">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">

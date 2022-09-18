@@ -26,6 +26,7 @@ const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
 
 export default function App() {
+  const [toggle, setToggle] = React.useState(false);
   return (
     <Router>
       <div className="container-fluid vh-100">
@@ -34,6 +35,14 @@ export default function App() {
             className="d-flex flex-row p-2 m-0 w-100 shadow-sm"
             style={{ height: navHeight }}
           >
+            <button
+              className="btn btn-outline"
+              onClick={() => {
+                setToggle(!toggle);
+              }}
+            >
+              <span class="material-symbols-outlined align-middle">menu</span>
+            </button>
             <img
               alt="IIT Tirupati Logo"
               src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Indian_Institute_of_Technology_Tirupati_Logo.svg/1920px-Indian_Institute_of_Technology_Tirupati_Logo.svg.png"
@@ -52,7 +61,11 @@ export default function App() {
             </div>
           </div>
           <div
-            className="col-2 shadow-sm p-0 m-0 sidenav-list"
+            className={
+              toggle
+                ? "col-2 shadow-sm p-0 m-0 sidenav-list"
+                : "col-2 shadow-sm p-0 m-0 sidenav-list d-none"
+            }
             style={{ height: contentHeight }}
           >
             <ul className="list-group mt-1 list-group-flush">
@@ -141,78 +154,87 @@ export default function App() {
               </Link>
             </ul>
           </div>
-          <div className="col-10 p-2" style={{ height: contentHeight }}>
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/home" element={<Home />}></Route>
+          <div
+            className={
+              toggle
+                ? "col-10 pt-0 p-2 overflow-auto"
+                : "col-12 pt-0 p-2 overflow-auto"
+            }
+            style={{ height: contentHeight }}
+          >
+            <div className="mt-1">
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/home" element={<Home />}></Route>
 
-              <Route path="/legal" element={<Legal />}></Route>
-              <Route path="/legal/rti/create" element={<RTIForm />}></Route> 
-              <Route path="/legal/rti/view" element={<RTIView />}></Route>
-              <Route path="/staff_service" element={<StaffService />}></Route>
-              <Route
-                path="/staff_services/cea_allowance"
-                element={<CeaAllowance />}
-              ></Route>
-              <Route 
-                path="/staff_service/cea_allowance/applyform"
-                element={<CeaAllowanceForm/>}
-              ></Route>
-              <Route 
-                path="/staff_service/cea_allowance/searchform"
-                element={<CEAAllowancePrevApplication/>}
-              ></Route>
+                <Route path="/legal" element={<Legal />}></Route>
+                <Route path="/legal/rti/create" element={<RTIForm />}></Route>
+                <Route path="/legal/rti/view" element={<RTIView />}></Route>
+                <Route path="/staff_service" element={<StaffService />}></Route>
+                <Route
+                  path="/staff_services/cea_allowance"
+                  element={<CeaAllowance />}
+                ></Route>
+                <Route
+                  path="/staff_service/cea_allowance/applyform"
+                  element={<CeaAllowanceForm />}
+                ></Route>
+                <Route
+                  path="/staff_service/cea_allowance/searchform"
+                  element={<CEAAllowancePrevApplication />}
+                ></Route>
 
-              <Route
-                path="/staff_service/create"
-                element={<ServiceRecords />}
-              ></Route>
+                <Route
+                  path="/staff_service/create"
+                  element={<ServiceRecords />}
+                ></Route>
 
-              <Route
-                path="/staff_service/service_records"
-                element={<ServiceRecords />}
-              ></Route>
+                <Route
+                  path="/staff_service/service_records"
+                  element={<ServiceRecords />}
+                ></Route>
 
-              <Route
-                path="/staff_service/service_records/create"
-                element={<ServiceRecordsCreate/>}
-              ></Route>
-              <Route
-                path="/staff_service/service_records/search"
-                element={<ServiceRecordsSearch/>}
-              ></Route>
-              {/* <Route path="/staff_service/attendance" element={<Attendance/>}></Route> */}
+                <Route
+                  path="/staff_service/service_records/create"
+                  element={<ServiceRecordsCreate />}
+                ></Route>
+                <Route
+                  path="/staff_service/service_records/search"
+                  element={<ServiceRecordsSearch />}
+                ></Route>
+                {/* <Route path="/staff_service/attendance" element={<Attendance/>}></Route> */}
 
-              <Route
-                path="/staff_service/payment"
-                element={<Payment />}
-              ></Route>
+                <Route
+                  path="/staff_service/payment"
+                  element={<Payment />}
+                ></Route>
 
-              <Route
-                path="/staff_service/performance"
-                element={<Performance />}
-              ></Route>
-              <Route
-                path="/staff_service/medical"
-                element={<Medical />}
-              ></Route>
+                <Route
+                  path="/staff_service/performance"
+                  element={<Performance />}
+                ></Route>
+                <Route
+                  path="/staff_service/medical"
+                  element={<Medical />}
+                ></Route>
 
-              <Route path="/training" element={<Training />}></Route>
-              <Route path="/profile" element={<Profile />}></Route>
-              <Route
-                path="/property_returns"
-                element={<PropertyReturns />}
-              ></Route>
-              <Route path="/visiting" element={<Visiting />}></Route>
-              <Route
-                path="/faculty_recruitment"
-                element={<FacultyRecruitment />}
-              ></Route>
-              <Route
-                path="/staff_recruitment"
-                element={<StaffRecruitment />}
-              ></Route>
-            </Routes>
+                <Route path="/training" element={<Training />}></Route>
+                <Route path="/profile" element={<Profile />}></Route>
+                <Route
+                  path="/property_returns"
+                  element={<PropertyReturns />}
+                ></Route>
+                <Route path="/visiting" element={<Visiting />}></Route>
+                <Route
+                  path="/faculty_recruitment"
+                  element={<FacultyRecruitment />}
+                ></Route>
+                <Route
+                  path="/staff_recruitment"
+                  element={<StaffRecruitment />}
+                ></Route>
+              </Routes>
+            </div>
           </div>
         </div>
       </div>
