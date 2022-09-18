@@ -5,6 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import DatePicker from "react-date-picker";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function MedicalRecordsCreate() {
   const [medicalRecord, setMedicalRecord] = useState({
@@ -91,11 +92,32 @@ export default function MedicalRecordsCreate() {
   return (
     <>
       <div className="d-flex flex-column">
-        <h1 className="p-2">Medical Records</h1>
-        <div className="row m-0 p-2 justify-content-center">
+        <div className="row m-0 p-1 position-sticky top-0 bg-white">
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to="/staff_service/medical/">
+                  <span className="btn btn-outline p-0 border-0 link-dark">
+                    Medical Records
+                  </span>
+                </Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                <Link to="/staff_service/medical/create">
+                  <span className="btn btn-outline p-0 border-0 link-primary">
+                    Create Medical Record
+                  </span>
+                </Link>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div className="row m-0 p-1 justify-content-center">
           <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
             <div className="d-flex flex-column">
-              <h2 className="text-center">Details</h2>
+            <h4 className="text-center mb-3">Create/Append Medical Record</h4>
+
+              <h5 className="text-start mb-2">Personal Details</h5>
               <>
                 {/* <form className="needs-validation" novalidate> */}
                 <div className="alert alert-danger d-none">
@@ -287,204 +309,188 @@ export default function MedicalRecordsCreate() {
                   </div>
                 </div>
 
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-12 m-2">
-                      <h3 className="text-center">Medical History</h3>
-                    </div>
-                  </div>
+                <h5 className="text-start mb-2">Medical History</h5>
 
-                  <div className="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Diagnosis
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="exampleInputName"
-                        placeholder="Diagnosis name"
-                        name="diagnosis"
-                        value={medicalHistory.diagnosis}
-                        onChange={handleInputsHistory}
+                <div className="row mb-3">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Diagnosis
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputName"
+                      placeholder="Diagnosis name"
+                      name="diagnosis"
+                      value={medicalHistory.diagnosis}
+                      onChange={handleInputsHistory}
+                    />
+                    <div className="invalid-feedback">Name can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Referred Physician
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputName"
+                      placeholder="Name of doctor"
+                      name="referredPhysician"
+                      value={medicalHistory.referredPhysician}
+                      onChange={handleInputsHistory}
+                    />
+                    <div className="invalid-feedback">Name can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Referred Clinic
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputName"
+                      placeholder="Name of the Clinic"
+                      name="referredClinic"
+                      value={medicalHistory.referredClinic}
+                      onChange={handleInputsHistory}
+                    />
+                    <div className="invalid-feedback">Name can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <label className="col-sm-3 col-form-label">Date</label>
+                  <div className="col-sm-9">
+                    <div className="d-flex flex-row justify-content-between align-items-center">
+                      <DatePicker
+                        calendarAriaLabel="Toggle calendar"
+                        clearAriaLabel="Clear value"
+                        dayPlaceholder="DD"
+                        monthPlaceholder="MM"
+                        yearPlaceholder="YYYY"
+                        dayAriaLabel="Day"
+                        monthAriaLabel="Month"
+                        onChange={setMedicalDate}
+                        value={medicalDate}
+                        nativeInputAriaLabel="Date"
+                        yearAriaLabel="Year"
+                        format="dd-MM-y"
+                        maxDate={new Date()}
                       />
-                      <div className="invalid-feedback">
-                        Name can't be blank
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
                     </div>
-                  </div>
-
-                  <div className="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Referred Physician
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="exampleInputName"
-                        placeholder="Name of doctor"
-                        name="referredPhysician"
-                        value={medicalHistory.referredPhysician}
-                        onChange={handleInputsHistory}
-                      />
-                      <div className="invalid-feedback">
-                        Name can't be blank
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
+                    <div className="invalid-feedback">
+                      Please provide a valid value.
                     </div>
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="form-text">Format: Day Month Year</div>
                   </div>
+                </div>
 
-                  <div className="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Referred Clinic
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="exampleInputName"
-                        placeholder="Name of the Clinic"
-                        name="referredClinic"
-                        value={medicalHistory.referredClinic}
-                        onChange={handleInputsHistory}
-                      />
-                      <div className="invalid-feedback">
-                        Name can't be blank
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
+                <div className="row mb-3">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Severity
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputName"
+                      name="severity"
+                      value={medicalHistory.severity}
+                      onChange={handleInputsHistory}
+                    />
+                    <div className="invalid-feedback">Name can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Other Info
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="exampleInputName"
+                      name="otherInfo"
+                      value={medicalHistory.otherInfo}
+                      onChange={handleInputsHistory}
+                    />
+                    <div className="invalid-feedback">Name can't be blank</div>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                </div>
+
+                <div className="row mb-3">
+                  <label
+                    for="exampleInputFriends"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Payment Amount (in ₹)
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="exampleInputFriends"
+                      placeholder="Amount in rupees (₹)"
+                      name="paymentAmount"
+                      value={medicalHistory.paymentAmount}
+                      onChange={handleInputsHistory}
+                    />
+                    <div className="invalid-feedback">
+                      Please provide a valid value.
                     </div>
+                    <div className="valid-feedback">Looks good!</div>
                   </div>
+                </div>
 
-                  <div className="row mb-3">
-                    <label className="col-sm-3 col-form-label">Date</label>
-                    <div className="col-sm-9">
-                      <div className="d-flex flex-row justify-content-between align-items-center">
-                        <DatePicker
-                          calendarAriaLabel="Toggle calendar"
-                          clearAriaLabel="Clear value"
-                          dayPlaceholder="DD"
-                          monthPlaceholder="MM"
-                          yearPlaceholder="YYYY"
-                          dayAriaLabel="Day"
-                          monthAriaLabel="Month"
-                          onChange={setMedicalDate}
-                          value={medicalDate}
-                          nativeInputAriaLabel="Date"
-                          yearAriaLabel="Year"
-                          format="dd-MM-y"
-                          maxDate={new Date()}
-                        />
-                      </div>
-                      <div className="invalid-feedback">
-                        Please provide a valid value.
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
-                      <div className="form-text">Format: Day Month Year</div>
+                <div className="row mb-3">
+                  <label
+                    for="exampleCustomFile"
+                    className="col-sm-3 col-form-label"
+                  >
+                    Upload Medical File
+                  </label>
+                  <div className="col-sm-9">
+                    <input
+                      type="file"
+                      className="form-control"
+                      id="Upload file"
+                      onChange={handleChangeInputFile}
+                    />
+                    <div className="invalid-feedback">
+                      Please provide a valid value.
                     </div>
-                  </div>
-
-                  <div className="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Severity
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="exampleInputName"
-                        name="severity"
-                        value={medicalHistory.severity}
-                        onChange={handleInputsHistory}
-                      />
-                      <div className="invalid-feedback">
-                        Name can't be blank
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
-                    </div>
-                  </div>
-
-                  <div className="row mb-3">
-                    <label
-                      for="exampleInputName"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Other Info
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="exampleInputName"
-                        name="otherInfo"
-                        value={medicalHistory.otherInfo}
-                        onChange={handleInputsHistory}
-                      />
-                      <div className="invalid-feedback">
-                        Name can't be blank
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
-                    </div>
-                  </div>
-
-                  <div className="row mb-3">
-                    <label
-                      for="exampleInputFriends"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Payment Amount (in ₹)
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="number"
-                        className="form-control"
-                        id="exampleInputFriends"
-                        placeholder="Amount in rupees (₹)"
-                        name="paymentAmount"
-                        value={medicalHistory.paymentAmount}
-                        onChange={handleInputsHistory}
-                      />
-                      <div className="invalid-feedback">
-                        Please provide a valid value.
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
-                    </div>
-                  </div>
-
-                  <div className="row mb-3">
-                    <label
-                      for="exampleCustomFile"
-                      className="col-sm-3 col-form-label"
-                    >
-                      Upload Medical File
-                    </label>
-                    <div className="col-sm-9">
-                      <input
-                        type="file"
-                        className="form-control"
-                        id="Upload file"
-                        onChange={handleChangeInputFile}
-                      />
-                      <div className="invalid-feedback">
-                        Please provide a valid value.
-                      </div>
-                      <div className="valid-feedback">Looks good!</div>
-                      <div className="form-text">
-                        (pdf, docx, jpg are acceptable formats)
-                      </div>
+                    <div className="valid-feedback">Looks good!</div>
+                    <div className="form-text">
+                      (pdf, docx, jpg are acceptable formats)
                     </div>
                   </div>
                 </div>
@@ -516,16 +522,16 @@ export default function MedicalRecordsCreate() {
                   </div>
                 </div>
 
-                <div className="row mb-0">
+                <div className="row mb-0 text-end">
                   <div className="col-sm-9 offset-sm-3">
                     <button
                       type="submit"
-                      className="btn btn-primary"
+                      className="btn btn-primary m-1"
                       onClick={handleSubmit}
                     >
                       Submit
                     </button>
-                    <button type="reset" className="btn btn-outline-secondary">
+                    <button type="reset" className="btn btn-outline-secondary m-1">
                       Cancel
                     </button>
                   </div>

@@ -17,11 +17,17 @@ import StaffRecruitment from "./pages/StaffRecruitment";
 import ServiceRecords from "./pages/ServiceRecords";
 import RTIForm from "./components/RTIForm";
 import RTIView from "./components/RTIView";
+import Attendance from "./pages/Attendance";
 import CeaAllowanceForm from "./components/CEAAllowanceForm";
 import CEAAllowancePrevApplication from "./components/CEAAllowancePrevApplications";
 import ServiceRecordsCreate from "./components/ServiceRecordsCreate";
 import ServiceRecordsSearch from "./components/ServiceRecordsSearch";
-
+import PaymentForm from "./components/PaymentForm";
+import PaymentView from "./components/PaymentView";
+import PerformanceForm from "./components/PerformanceForm";
+import PerformanceView from "./components/PerformanceView";
+import MedicalRecordsSearch from "./components/MedicalRecordsSearch";
+import MedicalRecordsCreate from "./components/MedicalRecordsCreate";
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
 
@@ -162,7 +168,7 @@ export default function App() {
             }
             style={{ height: contentHeight }}
           >
-            <div className="mt-1">
+            <div className="pt-2 h-100">
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/home" element={<Home />}></Route>
@@ -185,11 +191,6 @@ export default function App() {
                 ></Route>
 
                 <Route
-                  path="/staff_service/create"
-                  element={<ServiceRecords />}
-                ></Route>
-
-                <Route
                   path="/staff_service/service_records"
                   element={<ServiceRecords />}
                 ></Route>
@@ -202,20 +203,44 @@ export default function App() {
                   path="/staff_service/service_records/search"
                   element={<ServiceRecordsSearch />}
                 ></Route>
-                {/* <Route path="/staff_service/attendance" element={<Attendance/>}></Route> */}
+
+                <Route path="/staff_service/attendance" element={<Attendance/>}></Route>
 
                 <Route
                   path="/staff_service/payment"
                   element={<Payment />}
                 ></Route>
-
+                <Route
+                  path="/staff_service/payment/applyform"
+                  element={<PaymentForm />}
+                ></Route>
+                <Route
+                  path="/staff_service/payment/view"
+                  element={<PaymentView/>}
+                ></Route>
                 <Route
                   path="/staff_service/performance"
                   element={<Performance />}
                 ></Route>
+                                <Route
+                  path="/staff_service/performance/create"
+                  element={<PerformanceForm/>}
+                ></Route>
+                                <Route
+                  path="/staff_service/performance/view"
+                  element={<PerformanceView/>}
+                ></Route>
                 <Route
                   path="/staff_service/medical"
                   element={<Medical />}
+                ></Route>
+                                <Route
+                  path="/staff_service/medical/view"
+                  element={<MedicalRecordsSearch/>}
+                ></Route>
+                                <Route
+                  path="/staff_service/medical/create"
+                  element={<MedicalRecordsCreate/>}
                 ></Route>
 
                 <Route path="/training" element={<Training />}></Route>

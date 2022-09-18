@@ -3,7 +3,7 @@ const DetailsCard = (props) => {
     <div className="row m-0 p-1 justify-content-center">
       <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
         <div className="d-flex flex-column p-3 rounded border shadow-sm">
-          <h4 className="text-center">Service Record of the Employee</h4>
+          <h4 className="text-center">Record of the Employee</h4>
           <div className="row m-0 mb-2 mt-2">
             <div className="col-sm-3">
               <h6>Name</h6>
@@ -61,6 +61,39 @@ const DetailsCard = (props) => {
                         <tr>
                           <td>{item.jobDescription}</td>
                           <td>{item.record}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : null}
+                    {props.medicalHistory ? (
+            <>
+              <h6 className="ps-3 mt-2">eMedical Record</h6>
+              <div className="row m-0 mb-2 p-2">
+                <table className="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <th scope="col">Diagnosis</th>
+                      <th scope="col">Referred Clinic</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Severity</th>
+                      <th scope="col">Misc. Info</th>
+                      <th scope="col">Payment Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.medicalHistory.map((item) => {
+                      return (
+                        <tr>
+                          <td>{item.diagnosis}</td>
+                          <td>{item.referredClinic}</td>
+                          <td>{item.date}</td>
+                          <td>{item.severity}</td>
+                          <td>{item.otherInfo}</td>
+                          <td>{item.paymentAmount}</td>
                         </tr>
                       );
                     })}
