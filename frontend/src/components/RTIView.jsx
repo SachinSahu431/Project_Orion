@@ -81,7 +81,7 @@ export default function RTIView() {
                       </span>
                       <span>
                         <span className="text-danger p-1">
-                          Rejected(Bro u are asking for too much)
+                          Rejected
                         </span>
                       </span>
                     </p>
