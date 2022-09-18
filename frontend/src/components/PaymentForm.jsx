@@ -90,10 +90,10 @@ export default function PaymentForm() {
           </nav>
         </div>
         <div className="d-flex flex-column">
-          <h1 className="p-2">Staff Payment Management</h1>
           <div className="row m-0 justify-content-center">
             <div className="col-lg-10 col-md-10 col-12 p-2">
               <div className="d-flex flex-column">
+            <h4 className="text-center mb-3">Payment Form</h4>
                 <form class="needs-validation" novalidate>
                   <div class="alert alert-danger d-none">
                     Please review the problems below:

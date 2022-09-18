@@ -28,6 +28,9 @@ import PerformanceForm from "./components/PerformanceForm";
 import PerformanceView from "./components/PerformanceView";
 import MedicalRecordsSearch from "./components/MedicalRecordsSearch";
 import MedicalRecordsCreate from "./components/MedicalRecordsCreate";
+import TrainingRecordsCreate from "./components/TrainingRecordsCreate";
+import TrainingRecordsSearch from "./components/TrainingRecordsSearch";
+
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
 
@@ -69,12 +72,14 @@ export default function App() {
           <div
             className={
               toggle
-                ? "col-2 shadow-sm p-0 m-0 sidenav-list"
-                : "col-2 shadow-sm p-0 m-0 sidenav-list d-none"
+                ? "col-lg-2 col-md-2 col-12 shadow-sm p-0 m-0 sidenav-list border-end shadow border-1"
+                : "col-lg-2 col-md-2 col-2 shadow-sm p-0 m-0 sidenav-list d-none"
             }
             style={{ height: contentHeight }}
           >
-            <ul className="list-group mt-1 list-group-flush">
+            <ul className="list-group mt-1 list-group-flush" onClick={() => {
+              setToggle(!toggle)
+            }}>
               <Link to="/" className="list-group-item list-group-item-action">
                 Home
               </Link>
@@ -244,6 +249,9 @@ export default function App() {
                 ></Route>
 
                 <Route path="/training" element={<Training />}></Route>
+                <Route path="/training/create" element={<TrainingRecordsCreate/>}></Route>
+                <Route path="/training/view" element={<TrainingRecordsSearch />}></Route>
+
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route
                   path="/property_returns"

@@ -536,7 +536,6 @@ export default function MedicalRecordsCreate() {
                     </button>
                   </div>
                 </div>
-                {/* </form> */}
               </>
             </div>
           </div>

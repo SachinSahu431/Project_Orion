@@ -69,11 +69,11 @@ const DetailsCard = (props) => {
               </div>
             </>
           ) : null}
-                    {props.medicalHistory ? (
+          {props.medicalHistory ? (
             <>
               <h6 className="ps-3 mt-2">eMedical Record</h6>
               <div className="row m-0 mb-2 p-2">
-                <table className="table table-bordered text-center">
+                {/* <table className="table table-bordered text-center">
                   <thead>
                     <tr>
                       <th scope="col">Diagnosis</th>
@@ -98,7 +98,40 @@ const DetailsCard = (props) => {
                       );
                     })}
                   </tbody>
-                </table>
+                </table> */}
+                {props.medicalHistory.map((item, id) => {
+                  return (
+                    <div className="card my-1 p-2">
+                      <div className="card-title fw-bold fs-6">Record #{id}</div>
+                      <div className="card-body">
+                        <div className="row m-0">
+                          <h6 className="col-6 col-md-3 col-lg-2">Diagnosis</h6>
+                          <span className="col">{item.diagnosis}</span>
+                        </div>
+                        <div className="row m-0">
+                          <h6 className="col-6 col-md-3 col-lg-2">Referred Clinic</h6>
+                          <span className="col">{item.referredClinic}</span>
+                        </div>
+                        <div className="row m-0">
+                          <h6 className="col-6 col-md-3 col-lg-2">Date</h6>
+                          <span className="col">{item.date}</span>
+                        </div>
+                        <div className="row m-0">
+                          <h6 className="col-6 col-md-3 col-lg-2">Severity</h6>
+                          <span className="col">{item.severity}</span>
+                        </div>
+                        <div className="row m-0">
+                          <h6 className="col-6 col-md-3 col-lg-2">Information</h6>
+                          <span className="col">{item.otherInfo}</span>
+                        </div>
+                        <div className="row m-0">
+                          <h6 className="col-6 col-md-3 col-lg-2">Payment Amount</h6>
+                          <span className="col">{item.paymentAmount}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </>
           ) : null}

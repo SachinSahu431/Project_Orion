@@ -20,7 +20,7 @@ export default function Home() {
               Ensure you have access before you proceed.
             </p>
             <div className="row gy-3 gx-2">
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -34,7 +34,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/legal" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -48,7 +48,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/staff_service" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -62,7 +62,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/training" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -76,7 +76,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/property_returns" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -90,7 +90,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/visiting" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -104,7 +104,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/staff_recruitment" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
@@ -118,7 +118,7 @@ export default function Home() {
                   </div>
                 </Link>
               </div>
-              <div className="col-6">
+              <div className="col-lg-6 col-md-6 col-12">
                 <Link to="/faculty_recruitment" style={linkStyle}>
                   <div className="card">
                     <div className="card-body">
