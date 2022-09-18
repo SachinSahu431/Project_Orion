@@ -82,7 +82,7 @@ export default function MedicalRecordsCreate() {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Something went wrong!",
+        text: e.response.data.error,
       });
       console.log(e);
     }
@@ -103,7 +103,10 @@ export default function MedicalRecordsCreate() {
                 </div>
 
                 <div className="row mb-3">
-                  <label for="exampleInputName" className="col-sm-3 col-form-label">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
                     Name
                   </label>
                   <div className="col-sm-9">
@@ -153,7 +156,10 @@ export default function MedicalRecordsCreate() {
                 </div>
 
                 <div className="row mb-3">
-                  <label for="exampleInputName" className="col-sm-3 col-form-label">
+                  <label
+                    for="exampleInputName"
+                    className="col-sm-3 col-form-label"
+                  >
                     Phone
                   </label>
                   <div className="col-sm-9">
@@ -190,7 +196,10 @@ export default function MedicalRecordsCreate() {
                         onChange={handleInputs}
                         required
                       />
-                      <label className="form-check-label" for="exampleInlineRadio1">
+                      <label
+                        className="form-check-label"
+                        for="exampleInlineRadio1"
+                      >
                         Male
                       </label>
                     </div>
@@ -204,7 +213,10 @@ export default function MedicalRecordsCreate() {
                         onChange={handleInputs}
                         required
                       />
-                      <label className="form-check-label" for="exampleInlineRadio2">
+                      <label
+                        className="form-check-label"
+                        for="exampleInlineRadio2"
+                      >
                         Female
                       </label>
                     </div>
@@ -218,7 +230,10 @@ export default function MedicalRecordsCreate() {
                         value="Other"
                         required
                       />
-                      <label className="form-check-label" for="exampleInlineRadio3">
+                      <label
+                        className="form-check-label"
+                        for="exampleInlineRadio3"
+                      >
                         Other
                       </label>
                     </div>
@@ -232,7 +247,10 @@ export default function MedicalRecordsCreate() {
                         onChange={handleInputs}
                         required
                       />
-                      <label className="form-check-label" for="exampleInlineRadio4">
+                      <label
+                        className="form-check-label"
+                        for="exampleInlineRadio4"
+                      >
                         Prefer not to say
                       </label>
                     </div>
@@ -293,7 +311,9 @@ export default function MedicalRecordsCreate() {
                         value={medicalHistory.diagnosis}
                         onChange={handleInputsHistory}
                       />
-                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="invalid-feedback">
+                        Name can't be blank
+                      </div>
                       <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
@@ -315,7 +335,9 @@ export default function MedicalRecordsCreate() {
                         value={medicalHistory.referredPhysician}
                         onChange={handleInputsHistory}
                       />
-                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="invalid-feedback">
+                        Name can't be blank
+                      </div>
                       <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
@@ -337,7 +359,9 @@ export default function MedicalRecordsCreate() {
                         value={medicalHistory.referredClinic}
                         onChange={handleInputsHistory}
                       />
-                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="invalid-feedback">
+                        Name can't be blank
+                      </div>
                       <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
@@ -386,7 +410,9 @@ export default function MedicalRecordsCreate() {
                         value={medicalHistory.severity}
                         onChange={handleInputsHistory}
                       />
-                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="invalid-feedback">
+                        Name can't be blank
+                      </div>
                       <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
@@ -407,7 +433,9 @@ export default function MedicalRecordsCreate() {
                         value={medicalHistory.otherInfo}
                         onChange={handleInputsHistory}
                       />
-                      <div className="invalid-feedback">Name can't be blank</div>
+                      <div className="invalid-feedback">
+                        Name can't be blank
+                      </div>
                       <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
@@ -471,10 +499,15 @@ export default function MedicalRecordsCreate() {
                         id="exampleCheckTerms"
                         required
                       />
-                      <label className="form-check-label" for="exampleCheckTerms">
+                      <label
+                        className="form-check-label"
+                        for="exampleCheckTerms"
+                      >
                         Review and submit?
                       </label>
-                      <div className="invalid-feedback">Terms must be accepted</div>
+                      <div className="invalid-feedback">
+                        Terms must be accepted
+                      </div>
                       <div className="valid-feedback">Looks good!</div>
                       <div className="form-text">
                         Please review again, no changes possible after this
