@@ -51,10 +51,7 @@ export default function Medical() {
     currentRecord.dateOfBirth = moment(dob).format("DD/MM/YYYY");
 
     try {
-      await axios.post(
-        `http://localhost:5000/api/property/create`,
-        currentRecord
-      );
+      await axios.post(`/property/create`, currentRecord);
 
       console.log("posted");
 

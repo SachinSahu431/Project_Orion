@@ -7,7 +7,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
     "firebase": "^9.9.4",
@@ -45,5 +45,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "https://project-orion.vercel.app/api/"
 }
