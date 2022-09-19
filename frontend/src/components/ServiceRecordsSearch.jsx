@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 export default function ServiceRecordsSearch() {
   const [switchstate, setswitchstate] = useState(false);
   const [loadedServiceRecords, setLoadedServiceRecords] = useState();
-  const [phoneNum, setPhoneNum] = useState("");
+  const [email, setemail] = useState("");
   const [records, setRecords] = useState();
 
   const sendGetRequest = async () => {
     try {
       const resp = await axios.get(
-        `http://localhost:5000/api/service/phone/${phoneNum}`
+        `http://localhost:5000/api/service/email/${email}`
       );
       const responsetools = resp.data;
       console.log(responsetools["serviceRecord"][0]);
@@ -57,8 +57,8 @@ export default function ServiceRecordsSearch() {
                     type="text"
                     className="form-control"
                     id="searchByPhone"
-                    placeholder="Phone Number"
-                    onBlur={(e) => setPhoneNum(e.target.value)}
+                    placeholder="Email"
+                    onBlur={(e) => setemail(e.target.value)}
                   />
                 </div>
                 <div className="mb-3 w-100 text-end">
