@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function CeaAllowanceForm() {
+  const baseUrl = process.env.BASE_URL;
   const [ceaRecord, setCeaRecord] = useState({
     name: "",
     email: "",
@@ -27,7 +28,7 @@ export default function CeaAllowanceForm() {
     let temp = ceaRecord;
 
     try {
-      await axios.post(`/cea/create`, temp);
+      await axios.post(`${baseUrl}/cea/create`, temp);
       console.log("posted");
 
       await Swal.fire({

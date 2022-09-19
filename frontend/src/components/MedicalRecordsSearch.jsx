@@ -4,6 +4,7 @@ import axios from "axios";
 import DetailsCard from "./DetailsCard";
 
 export default function MedicalRecordsSearch() {
+  const baseUrl = process.env.BASE_URL;
   const [loadedMedicalRecords, setLoadedMedicalRecords] = useState();
   const [loading, setLoading] = useState(false);
   const [eMail, setEMail] = useState("");
@@ -11,7 +12,7 @@ export default function MedicalRecordsSearch() {
   const sendGetRequest = async () => {
     try {
       setLoading(true);
-      const resp = await axios.get(`/medical/email/${eMail}`);
+      const resp = await axios.get(`${baseUrl}/medical/email/${eMail}`);
       const responsetools = resp.data;
       console.log(responsetools["medicalRecord"][0]);
       setLoading(false);
