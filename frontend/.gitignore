@@ -8,7 +8,7 @@
 
 
 # env file
-
+config.env
 # testing
 /coverage
 

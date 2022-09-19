@@ -10,9 +10,7 @@ export default function TrainingRecordsSearch() {
 
   const sendGetRequest = async () => {
     try {
-      const resp = await axios.get(
-        `http://localhost:5000/api/training/email/${email}`
-      );
+      const resp = await axios.get(`/training/email/${email}`);
       const responsetools = resp.data;
       console.log(responsetools["trainingRecord"][0]);
 

@@ -43,10 +43,7 @@ export default function TrainingRecordsCreate() {
     currentRecord.dateOfBirth = moment(dob).format("DD/MM/YYYY");
 
     try {
-      await axios.post(
-        `http://localhost:5000/api/training/create`,
-        currentRecord
-      );
+      await axios.post(`/training/create`, currentRecord);
       console.log("posted");
       await Swal.fire({
         icon: "success",

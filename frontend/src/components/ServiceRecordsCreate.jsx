@@ -35,7 +35,7 @@ export default function ServiceRecordsCreate() {
     temp.dateOfBirth = "04092022";
     temp.gender = "male";
 
-    await axios.post(`http://localhost:5000/api/service/create`, temp);
+    await axios.post(`/service/create`, temp);
 
     console.log("posted");
   };

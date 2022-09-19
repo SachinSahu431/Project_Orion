@@ -19,18 +19,17 @@ export default function RTIForm() {
 
   const handleSubmit = async () => {
     let temp = rtiRecord;
-    try{
-      await axios.post(`http://localhost:5000/api/rti/create`, temp);
+    try {
+      await axios.post(`/rti/create`, temp);
 
       console.log("posted");
-        await Swal.fire({
-          icon: "success",
-          title: "Details Updated",
-        });
-        window.location.reload();
+      await Swal.fire({
+        icon: "success",
+        title: "Details Updated",
+      });
+      window.location.reload();
       console.log("posted");
-    }
-    catch(e){
+    } catch (e) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -107,7 +106,9 @@ export default function RTIForm() {
                   onChange={handleInputs}
                   required
                 />
-                <div className="invalid-feedback">Phone Number can't be blank</div>
+                <div className="invalid-feedback">
+                  Phone Number can't be blank
+                </div>
                 <div className="valid-feedback">Looks good!</div>
               </div>
             </div>
@@ -159,16 +160,18 @@ export default function RTIForm() {
               </label>
               <div className="col-sm-9">
                 <input
-                    type="text"
-                    name="queryType"
-                    className="form-control"
-                    id="rti-queryType"
-                    placeholder="Your QueryType"
-                    value={rtiRecord.queryType}
-                    onChange={handleInputs}
-                    required
+                  type="text"
+                  name="queryType"
+                  className="form-control"
+                  id="rti-queryType"
+                  placeholder="Your QueryType"
+                  value={rtiRecord.queryType}
+                  onChange={handleInputs}
+                  required
                 />
-                <div className="invalid-feedback">Query Type can't be blank</div>
+                <div className="invalid-feedback">
+                  Query Type can't be blank
+                </div>
                 <div className="valid-feedback">Looks good!</div>
                 <div className="form-text">
                   Query type can be Administration, Medical, Financial etc..

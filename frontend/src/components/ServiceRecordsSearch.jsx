@@ -11,9 +11,11 @@ export default function ServiceRecordsSearch() {
 
   const sendGetRequest = async () => {
     try {
+
       const resp = await axios.get(
-        `http://localhost:5000/api/service/email/${email}`
+        `https://project-orion.vercel.app/api/service/email/${email}`
       );
+
       const responsetools = resp.data;
       console.log(responsetools["serviceRecord"][0]);
 
@@ -22,7 +24,6 @@ export default function ServiceRecordsSearch() {
       console.error(err);
     }
   };
-
 
   return (
     <>
@@ -75,20 +76,20 @@ export default function ServiceRecordsSearch() {
           </div>
         </div>
 
-          {!loadedServiceRecords ? (
-            <></>
-          ) : (
-            <>
-              <DetailsCard
-                name={loadedServiceRecords.name}
-                dob={loadedServiceRecords.dateOfBirth}
-                phone={loadedServiceRecords.phone}
-                gender={loadedServiceRecords.gender}
-                email={loadedServiceRecords.email}
-                additional={loadedServiceRecords.eServiceRecord}
-              />
-            </>
-          )}
+        {!loadedServiceRecords ? (
+          <></>
+        ) : (
+          <>
+            <DetailsCard
+              name={loadedServiceRecords.name}
+              dob={loadedServiceRecords.dateOfBirth}
+              phone={loadedServiceRecords.phone}
+              gender={loadedServiceRecords.gender}
+              email={loadedServiceRecords.email}
+              additional={loadedServiceRecords.eServiceRecord}
+            />
+          </>
+        )}
       </div>
     </>
   );

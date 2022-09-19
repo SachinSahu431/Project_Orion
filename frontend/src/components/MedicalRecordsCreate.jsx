@@ -69,10 +69,7 @@ export default function MedicalRecordsCreate() {
     currentRecord.medicalHistory[0].date =
       moment(medicalDate).format("DD/MM/YYYY");
     try {
-      await axios.post(
-        `http://localhost:5000/api/medical/create`,
-        currentRecord
-      );
+      await axios.post(`/medical/create`, currentRecord);
       console.log("posted");
       await Swal.fire({
         icon: "success",
@@ -115,7 +112,7 @@ export default function MedicalRecordsCreate() {
         <div className="row m-0 p-1 justify-content-center">
           <div className="col-lg-10 col-md-10 col-12 p-2 rounded pb-3">
             <div className="d-flex flex-column">
-            <h4 className="text-center mb-3">Create/Append Medical Record</h4>
+              <h4 className="text-center mb-3">Create/Append Medical Record</h4>
 
               <h5 className="text-start mb-2">Personal Details</h5>
               <>
@@ -531,7 +528,10 @@ export default function MedicalRecordsCreate() {
                     >
                       Submit
                     </button>
-                    <button type="reset" className="btn btn-outline-secondary m-1">
+                    <button
+                      type="reset"
+                      className="btn btn-outline-secondary m-1"
+                    >
                       Cancel
                     </button>
                   </div>

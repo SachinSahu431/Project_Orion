@@ -52,10 +52,7 @@ export default function PaymentForm() {
     let currentRecord = paymentRecord;
 
     try {
-      await axios.post(
-        `http://localhost:5000//api/payment/create`,
-        currentRecord
-      );
+      await axios.post(`/payment/create`, currentRecord);
 
       console.log("posted");
 
