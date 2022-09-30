@@ -11,10 +11,7 @@ export default function ServiceRecordsSearch() {
 
   const sendGetRequest = async () => {
     try {
-
-      const resp = await axios.get(
-        `https://project-orion.vercel.app/api/service/email/${email}`
-      );
+      const resp = await axios.get(`/service/email/${email}`);
 
       const responsetools = resp.data;
       console.log(responsetools["serviceRecord"][0]);
