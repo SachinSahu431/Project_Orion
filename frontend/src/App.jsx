@@ -30,6 +30,7 @@ import MedicalRecordsSearch from "./components/MedicalRecordsSearch";
 import MedicalRecordsCreate from "./components/MedicalRecordsCreate";
 import TrainingRecordsCreate from "./components/TrainingRecordsCreate";
 import TrainingRecordsSearch from "./components/TrainingRecordsSearch";
+import Applications from "./pages/Applications";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -79,9 +80,12 @@ export default function App() {
             }
             style={{ height: contentHeight }}
           >
-            <ul className="list-group mt-1 list-group-flush" onClick={() => {
-              setToggle(!toggle)
-            }}>
+            <ul
+              className="list-group mt-1 list-group-flush"
+              onClick={() => {
+                setToggle(!toggle);
+              }}
+            >
               <Link to="/" className="list-group-item list-group-item-action">
                 Home
               </Link>
@@ -211,7 +215,10 @@ export default function App() {
                   element={<ServiceRecordsSearch />}
                 ></Route>
 
-                <Route path="/staff_service/attendance" element={<Attendance/>}></Route>
+                <Route
+                  path="/staff_service/attendance"
+                  element={<Attendance />}
+                ></Route>
 
                 <Route
                   path="/staff_service/payment"
@@ -223,36 +230,42 @@ export default function App() {
                 ></Route>
                 <Route
                   path="/staff_service/payment/view"
-                  element={<PaymentView/>}
+                  element={<PaymentView />}
                 ></Route>
                 <Route
                   path="/staff_service/performance"
                   element={<Performance />}
                 ></Route>
-                                <Route
+                <Route
                   path="/staff_service/performance/create"
-                  element={<PerformanceForm/>}
+                  element={<PerformanceForm />}
                 ></Route>
-                                <Route
+                <Route
                   path="/staff_service/performance/view"
-                  element={<PerformanceView/>}
+                  element={<PerformanceView />}
                 ></Route>
                 <Route
                   path="/staff_service/medical"
                   element={<Medical />}
                 ></Route>
-                                <Route
+                <Route
                   path="/staff_service/medical/view"
-                  element={<MedicalRecordsSearch/>}
+                  element={<MedicalRecordsSearch />}
                 ></Route>
-                                <Route
+                <Route
                   path="/staff_service/medical/create"
-                  element={<MedicalRecordsCreate/>}
+                  element={<MedicalRecordsCreate />}
                 ></Route>
 
                 <Route path="/training" element={<Training />}></Route>
-                <Route path="/training/create" element={<TrainingRecordsCreate/>}></Route>
-                <Route path="/training/view" element={<TrainingRecordsSearch />}></Route>
+                <Route
+                  path="/training/create"
+                  element={<TrainingRecordsCreate />}
+                ></Route>
+                <Route
+                  path="/training/view"
+                  element={<TrainingRecordsSearch />}
+                ></Route>
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
@@ -265,6 +278,7 @@ export default function App() {
                   path="/faculty_recruitment"
                   element={<FacultyRecruitment />}
                 ></Route>
+                <Route path="/applications" element={<Applications />}></Route>
                 <Route
                   path="/staff_recruitment"
                   element={<StaffRecruitment />}

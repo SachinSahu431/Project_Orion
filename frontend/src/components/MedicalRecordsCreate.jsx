@@ -6,6 +6,7 @@ import DatePicker from "react-date-picker";
 import moment from "moment";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import FormInput from "./FormInput";
 
 export default function MedicalRecordsCreate() {
   const [medicalRecord, setMedicalRecord] = useState({
@@ -48,6 +49,7 @@ export default function MedicalRecordsCreate() {
 
   const handleChangeInputFile = (e) => {
     const file = e.target.files[0];
+
     let newFile = "Medical/" + file.name;
     const fileRef = ref(storage, newFile);
 
@@ -65,7 +67,7 @@ export default function MedicalRecordsCreate() {
     currentRecord.medicalHistory = [medicalHistory];
     currentRecord.dateOfBirth = moment(dob).format("DD/MM/YYYY");
 
-    currentRecord.medicalHistory[0].medicalFile = url;
+    //currentRecord.medicalHistory[0].medicalFile = url;
     currentRecord.medicalHistory[0].date =
       moment(medicalDate).format("DD/MM/YYYY");
     try {
@@ -121,31 +123,17 @@ export default function MedicalRecordsCreate() {
                   Please review the problems below:
                 </div>
 
-                <div className="row mb-3">
-                  <label
-                    for="exampleInputName"
-                    className="col-sm-3 col-form-label"
-                  >
-                    Name
-                  </label>
-                  <div className="col-sm-9">
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control"
-                      id="exampleInputName"
-                      placeholder="Your name"
-                      value={medicalRecord.name}
-                      onChange={handleInputs}
-                      required
-                    />
-                    <div className="invalid-feedback">Name can't be blank</div>
-                    <div className="valid-feedback">Looks good!</div>
-                    <div className="form-text">
-                      Enter Name as on official documents
-                    </div>
-                  </div>
-                </div>
+                <FormInput
+                  label="Name"
+                  type="text"
+                  placeholder="Your Name"
+                  name="name"
+                  curFormState={medicalRecord}
+                  changeCurFormState={setMedicalRecord}
+                  valid="Looks good!"
+                  invalid="Name can't be blank"
+                  formText=" Enter Name as on official documents"
+                />
 
                 <div className="row mb-3">
                   <label

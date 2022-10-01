@@ -4,7 +4,6 @@ import axios from "axios";
 import DetailsCard from "./DetailsCard";
 
 export default function MedicalRecordsSearch() {
-  const baseUrl = process.env.BASE_URL;
   const [loadedMedicalRecords, setLoadedMedicalRecords] = useState();
   const [loading, setLoading] = useState(false);
   const [eMail, setEMail] = useState("");

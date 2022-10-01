@@ -14,3 +14,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 //https://project-orion.vercel.app/api/ backend
+
+//deployed data:
+
+//backend url
+//https://project-orion.vercel.app/api/
+
+//frontend url
+//https://orion-erp.vercel.app/

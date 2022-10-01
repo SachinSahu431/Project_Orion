@@ -87,6 +87,7 @@ app.use("/api/property", propertyRoutes);
 app.use("/api/training", trainingRoutes);
 app.use("/api/service", serviceRoutes);
 app.use("/api/rti", rtiRoutes);
+app.use("/api/recruitment", require("./routes/recruitment-routes"));
 
 app.listen(5000, () => {
   console.log(`server is running at port 5000`);
