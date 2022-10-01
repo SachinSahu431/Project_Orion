@@ -28,7 +28,7 @@ export default function CeaAllowanceForm() {
     let temp = ceaRecord;
 
     try {
-      await axios.post(`${baseUrl}/cea/create`, temp);
+      await axios.post(`/cea/create`, temp);
       console.log("posted");
 
       await Swal.fire({

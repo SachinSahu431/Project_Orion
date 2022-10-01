@@ -12,7 +12,7 @@ export default function MedicalRecordsSearch() {
   const sendGetRequest = async () => {
     try {
       setLoading(true);
-      const resp = await axios.get(`${baseUrl}/medical/email/${eMail}`);
+      const resp = await axios.get(`/medical/email/${eMail}`);
       const responsetools = resp.data;
       console.log(responsetools["medicalRecord"][0]);
       setLoading(false);
