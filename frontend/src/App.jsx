@@ -30,6 +30,8 @@ import MedicalRecordsSearch from "./components/MedicalRecordsSearch";
 import MedicalRecordsCreate from "./components/MedicalRecordsCreate";
 import TrainingRecordsCreate from "./components/TrainingRecordsCreate";
 import TrainingRecordsSearch from "./components/TrainingRecordsSearch";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
@@ -251,7 +253,8 @@ export default function App() {
                 <Route path="/training" element={<Training />}></Route>
                 <Route path="/training/create" element={<TrainingRecordsCreate/>}></Route>
                 <Route path="/training/view" element={<TrainingRecordsSearch />}></Route>
-
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/profile" element={<Profile />}></Route>
                 <Route
                   path="/property_returns"

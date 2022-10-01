@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://localhost:5000/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -9,11 +10,14 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
     "firebase": "^9.9.4",
     "moment": "^2.29.4",
     "mongoose": "^6.5.3",
     "nth-check": "^2.1.1",
+    "passport": "^0.6.0",
+    "passport-local-mongoose": "^7.1.2",
     "react": "^18.2.0",
     "react-date-picker": "^9.0.0",
     "react-dom": "^18.2.0",
@@ -45,6 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://project-orion.vercel.app/api/"
+  }
 }
