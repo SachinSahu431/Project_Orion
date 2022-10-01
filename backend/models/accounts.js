@@ -14,9 +14,13 @@ const accountsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  accounttype:{
+    type: String,
+    enum: ['admin', 'faculty', 'root'],
+    default: 'faculty'
+  }, 
   password: {
     type: String,
-    required: true,
   }
 });
 

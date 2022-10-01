@@ -42,34 +42,40 @@ passport.use(accounts.createStrategy());
 passport.serializeUser(accounts.serializeUser());
 passport.deserializeUser(accounts.deserializeUser());
 
-app.get("/", (req, res) => {
-  res.send("Server Route.");
-});
-
-// app.post("/login", (req, res) => {
-
+// app.get("/", (req, res) => {
+//   res.send("Server Route.");
 // });
 
-// app.post("/signup", (req, res) => {
-//   console.log("Signup Route Fired!");
-//   accounts.register({name: req.body.name, email: req.body.email, phone: req.body.phone}, req.body.password, (err, user) => {
+// app.post("/api/login", (req, res) => {
+//   const user = new accounts({
+//     username: req.body.username,
+//     password: req.body.password
+//   });
+
+//   req.login(user, function(err) {
 //     if (err) {
 //       console.log(err);
-//       res.redirect("/signup");
 //     } else {
-//       passport.authenticate("local")(req, res, () => {
-//         res.redirect("/done");
+//       passport.authenticate("local")(req, res, function() {
+//         res.send("Successfully Logged In.");
 //       });
 //     }
-//   })
+//   });
 // });
 
-// app.get("/done", (req, res) => {
-//   if(req.isAuthenticated()) {
-//     res.send("Done");
-//   }else{
-//     res.redirect("/login");
-//   }
+// app.post("/api/signup", (req, res) => {
+//   accounts.register({ 
+//     username: req.body.email, 
+//     name: req.body.name, 
+//     email: req.body.email, 
+//     phone: req.body.phone }, req.body.password, (err, user) => {
+
+//       if(err){
+//         res.send(err);
+//       }else{
+//         res.send("Success");
+//       }
+//   })
 // });
 
 app.use("/api/medical", medicalRoutes);
