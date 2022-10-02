@@ -6,8 +6,14 @@ import { useState } from "react";
 import axios from "axios";
 import { storage } from "../storage/base";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import DatePicker from "react-date-picker";
+import Swal from "sweetalert2";
+
+import moment from "moment";
 
 export default function PaymentForm() {
+  const [dob, setDob] = useState();
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [paymentRecord, setPaymentRecord] = useState({
     name: "",
     email: "",
@@ -26,7 +32,9 @@ export default function PaymentForm() {
   });
 
   const [url, setUrl] = useState(null);
-
+  const handleAccepted = (e) => {
+    setTermsAccepted(!termsAccepted);
+  };
   const handleInputs = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -50,16 +58,16 @@ export default function PaymentForm() {
 
   const handleSubmit = async () => {
     let currentRecord = paymentRecord;
+    currentRecord.dateOfBirth = moment(dob).format("DD/MM/YYYY");
 
-    try {
+    if (termsAccepted) {
       await axios.post(`/payment/create`, currentRecord);
-
       console.log("posted");
-
-      window.alert("Your record is updated");
-    } catch (e) {
-      window.alert("Error try again later");
-      console.log(e);
+      await Swal.fire({
+        icon: "success",
+        title: "Details Updated",
+      });
+      window.location.reload();
     }
   };
 
@@ -90,7 +98,7 @@ export default function PaymentForm() {
           <div className="row m-0 justify-content-center">
             <div className="col-lg-10 col-md-10 col-12 p-2">
               <div className="d-flex flex-column">
-            <h4 className="text-center mb-3">Payment Form</h4>
+                <h4 className="text-center mb-3">Payment Form</h4>
                 <form class="needs-validation" novalidate>
                   <div class="alert alert-danger d-none">
                     Please review the problems below:
@@ -177,169 +185,109 @@ export default function PaymentForm() {
                     </div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label pt-0">Gender</label>
-                    <div class="col-sm-9">
-                      <div class="form-check form-check-inline">
+                  <div className="row mb-3">
+                    <label className="col-sm-3 col-form-label pt-0">
+                      Gender
+                    </label>
+                    <div className="col-sm-9">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
                           id="exampleInlineRadio1"
-                          value="option1"
+                          name="gender"
+                          value="Male"
+                          onChange={handleInputs}
                           required
                         />
                         <label
-                          class="form-check-label"
+                          className="form-check-label"
                           for="exampleInlineRadio1"
                         >
                           Male
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
+                          name="gender"
                           id="exampleInlineRadio2"
-                          value="option2"
+                          value="Female"
+                          onChange={handleInputs}
                           required
                         />
                         <label
-                          class="form-check-label"
+                          className="form-check-label"
                           for="exampleInlineRadio2"
                         >
                           Female
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
+                          name="gender"
                           id="exampleInlineRadio3"
-                          value="option3"
+                          onChange={handleInputs}
+                          value="Other"
                           required
                         />
                         <label
-                          class="form-check-label"
+                          className="form-check-label"
                           for="exampleInlineRadio3"
                         >
                           Other
                         </label>
                       </div>
-                      <div class="form-check form-check-inline">
+                      <div className="form-check form-check-inline">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="radio"
-                          name="exampleInlineRadioColor"
+                          name="gender"
                           id="exampleInlineRadio4"
-                          value="option4"
+                          value="Prefer not to say"
+                          onChange={handleInputs}
                           required
                         />
                         <label
-                          class="form-check-label"
+                          className="form-check-label"
                           for="exampleInlineRadio4"
                         >
-                          Prefer Not Say
+                          Prefer not to say
                         </label>
                       </div>
-                      <div class="invalid-feedback">
+                      <div className="invalid-feedback">
                         Please provide a valid value.
                       </div>
-                      <div class="valid-feedback">Looks good!</div>
+                      <div className="valid-feedback">Looks good!</div>
                     </div>
                   </div>
 
-                  <div class="row mb-3">
-                    <label class="col-sm-3 col-form-label">DOB</label>
-                    <div class="col-sm-9">
-                      <div class="d-flex flex-row justify-content-between align-items-center">
-                        <select
-                          id="exampleInputDateYear"
-                          class="form-select me-1"
-                          required
-                        >
-                          <option></option>
-                          <option value="1970">1970</option>
-                          <option value="1971">1971</option>
-                          <option value="1972">1972</option>
-                          <option value="1973">1973</option>
-                          <option value="1974">1974</option>
-                          <option value="1975">1975</option>
-                          <option value="1980">1980</option>
-                          <option value="2018">2018</option>
-                          <option value="2019">2019</option>
-                          <option value="2020">2020</option>
-                          <option value="2021">2021</option>
-                          <option value="2022">2022</option>
-                          <option value="2023">2023</option>
-                        </select>
-
-                        <select
-                          id="exampleInputDateMonth"
-                          class="form-select mx-1"
-                          required
-                        >
-                          <option></option>
-                          <option value="1">January</option>
-                          <option value="2">February</option>
-                          <option value="3">March</option>
-                          <option value="4">April</option>
-                          <option value="5">May</option>
-                          <option value="6">June</option>
-                          <option value="7">July</option>
-                          <option value="8">August</option>
-                          <option value="9">September</option>
-                          <option value="10">October</option>
-                          <option value="11">November</option>
-                          <option value="12">December</option>
-                        </select>
-
-                        <select
-                          id="exampleInputDateDay"
-                          class="form-select ms-1"
-                          required
-                        >
-                          <option></option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                          <option value="6">6</option>
-                          <option value="7">7</option>
-                          <option value="8">8</option>
-                          <option value="9">9</option>
-                          <option value="10">10</option>
-                          <option value="11">11</option>
-                          <option value="12">12</option>
-                          <option value="13">13</option>
-                          <option value="14">14</option>
-                          <option value="15">15</option>
-                          <option value="16">16</option>
-                          <option value="17">17</option>
-                          <option value="18">18</option>
-                          <option value="19">19</option>
-                          <option value="20">20</option>
-                          <option value="21">21</option>
-                          <option value="22">22</option>
-                          <option value="23">23</option>
-                          <option value="24">24</option>
-                          <option value="25">25</option>
-                          <option value="26">26</option>
-                          <option value="27">27</option>
-                          <option value="28">28</option>
-                          <option value="29">29</option>
-                          <option value="30">30</option>
-                          <option value="31">31</option>
-                        </select>
-                      </div>
-                      <div class="invalid-feedback">
+                  <div className="row mb-3">
+                    <label className="col-sm-3 col-form-label">DOB</label>
+                    <div className="col-sm-9">
+                      <DatePicker
+                        calendarAriaLabel="Toggle calendar"
+                        clearAriaLabel="Clear value"
+                        dayPlaceholder="DD"
+                        monthPlaceholder="MM"
+                        yearPlaceholder="YYYY"
+                        dayAriaLabel="Day"
+                        monthAriaLabel="Month"
+                        onChange={setDob}
+                        value={dob}
+                        nativeInputAriaLabel="Date"
+                        yearAriaLabel="Year"
+                        format="dd-MM-y"
+                        maxDate={new Date()}
+                      />
+                      <div className="invalid-feedback">
                         Please provide a valid value.
                       </div>
-                      <div class="valid-feedback">Looks good!</div>
-                      <div class="form-text">Format: Year Month Day</div>
+                      <div className="valid-feedback">Looks good!</div>
+                      <div className="form-text">Format: Day Month Year</div>
                     </div>
                   </div>
 
@@ -359,7 +307,6 @@ export default function PaymentForm() {
                         name="leaveEncashment"
                         value={paymentRecord.leaveEncashment}
                         onChange={handleInputs}
-                        required
                       />
                       <div class="invalid-feedback">
                         Please provide a valid value.
@@ -381,10 +328,9 @@ export default function PaymentForm() {
                         class="form-control"
                         id="exampleInputFriends"
                         placeholder="Amount in rupees (₹)"
-                        name="amountApproved"
-                        value={paymentRecord.amountApproved}
+                        name="ltc"
+                        value={paymentRecord.ltc}
                         onChange={handleInputs}
-                        required
                       />
                       <div class="invalid-feedback">
                         Please provide a valid value.
@@ -406,7 +352,9 @@ export default function PaymentForm() {
                         class="form-control"
                         id="exampleInputFriends"
                         placeholder="Amount in rupees (₹)"
-                        required
+                        name="temporaryAdvances"
+                        value={paymentRecord.temporaryAdvances}
+                        onChange={handleInputs}
                       />
                       <div class="invalid-feedback">
                         Please provide a valid value.
@@ -428,7 +376,9 @@ export default function PaymentForm() {
                         class="form-control"
                         id="exampleInputFriends"
                         placeholder="Amount in rupees (₹)"
-                        required
+                        name="medicalReimbusement"
+                        value={paymentRecord.medicalReimbusement}
+                        onChange={handleInputs}
                       />
                       <div class="invalid-feedback">
                         Please provide a valid value.
@@ -442,14 +392,14 @@ export default function PaymentForm() {
                       for="exampleCustomFile"
                       class="col-sm-3 col-form-label"
                     >
-                      Medical Reimbusement File
+                      Medical Reimbursement File
                     </label>
                     <div class="col-sm-9">
                       <input
                         type="file"
                         class="form-control"
                         id="Upload file"
-                        required
+                        onChange={handleChangeInputFile}
                       />
                       <div class="invalid-feedback">
                         Please provide a valid value.
@@ -466,6 +416,30 @@ export default function PaymentForm() {
                       for="exampleInputFriends"
                       class="col-sm-3 col-form-label"
                     >
+                      Travel Reimbursements (in ₹)
+                    </label>
+                    <div class="col-sm-9">
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="exampleInputFriends"
+                        placeholder="Amount in rupees (₹)"
+                        name="travelReimbusement"
+                        value={paymentRecord.travelReimbusement}
+                        onChange={handleInputs}
+                      />
+                      <div class="invalid-feedback">
+                        Please provide a valid value.
+                      </div>
+                      <div class="valid-feedback">Looks good!</div>
+                      <div class="form-text">Amount in rupees</div>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label
+                      for="exampleInputFriends"
+                      class="col-sm-3 col-form-label"
+                    >
                       Other Reimbusements (in ₹)
                     </label>
                     <div class="col-sm-9">
@@ -474,7 +448,9 @@ export default function PaymentForm() {
                         class="form-control"
                         id="exampleInputFriends"
                         placeholder="Amount in rupees (₹)"
-                        required
+                        name="otherReimbusements"
+                        value={paymentRecord.otherReimbusements}
+                        onChange={handleInputs}
                       />
                       <div class="invalid-feedback">
                         Please provide a valid value.
@@ -491,6 +467,7 @@ export default function PaymentForm() {
                           type="checkbox"
                           value=""
                           id="exampleCheckTerms"
+                          onChange={handleAccepted}
                           required
                         />
                         <label class="form-check-label" for="exampleCheckTerms">
@@ -509,7 +486,11 @@ export default function PaymentForm() {
 
                   <div class="row mb-0 text-end">
                     <div class="col-sm-9 offset-sm-3">
-                      <button type="submit" class="btn btn-primary m-1">
+                      <button
+                        type="submit"
+                        class="btn btn-primary m-1"
+                        onClick={handleSubmit}
+                      >
                         Submit
                       </button>
                       <button
