@@ -30,11 +30,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(session({
-  secret: "Simple Secret",
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  session({
+    secret: "Simple Secret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -64,10 +66,10 @@ passport.deserializeUser(accounts.deserializeUser());
 // });
 
 // app.post("/api/signup", (req, res) => {
-//   accounts.register({ 
-//     username: req.body.email, 
-//     name: req.body.name, 
-//     email: req.body.email, 
+//   accounts.register({
+//     username: req.body.email,
+//     name: req.body.name,
+//     email: req.body.email,
 //     phone: req.body.phone }, req.body.password, (err, user) => {
 
 //       if(err){
@@ -88,7 +90,7 @@ app.use("/api/training", trainingRoutes);
 app.use("/api/service", serviceRoutes);
 app.use("/api/rti", rtiRoutes);
 app.use("/api/recruitment", require("./routes/recruitment-routes"));
-
+app.use("/api/form", require("./routes/forms-route"));
 app.listen(5000, () => {
   console.log(`server is running at port 5000`);
 });

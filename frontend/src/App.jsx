@@ -33,7 +33,8 @@ import TrainingRecordsSearch from "./components/TrainingRecordsSearch";
 import Applications from "./pages/Applications";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-
+import DynamicRec from "./pages/DynamicRec";
+import Panel from "./pages/Panel";
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
 
@@ -283,6 +284,8 @@ export default function App() {
                   path="/staff_recruitment"
                   element={<StaffRecruitment />}
                 ></Route>
+                <Route path="/dynRec" element={<DynamicRec />}></Route>
+                <Route path="/panel" element={<Panel />}></Route>
               </Routes>
             </div>
           </div>
