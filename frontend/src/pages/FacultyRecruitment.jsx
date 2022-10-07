@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { storage } from "../storage/base";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import DatePicker from "react-date-picker";
@@ -22,6 +22,72 @@ export default function FacultyRecruitment() {
     resume: "",
   });
 
+  const [otherRecord, setOtherRecord] = useState();
+  const [formState, setFormState] = useState({});
+  const [status, setStatus] = useState("false");
+
+  const makeFormInputs = (data, i) => {
+    return (
+      <FormInput
+        label={data.label[i]}
+        type={data.type[i]}
+        placeholder={data.placeholder[i]}
+        name={data.name[i]}
+        valid="Good!"
+        invalid="Please provide a valid input."
+        formText="Hehehe"
+        // invalid={data.invalid[i]}
+        // valid={data.valid[i]}
+        // formText={data.formText[i]}
+        curFormState={formState}
+        changeCurFormState={setFormState}
+      />
+    );
+  };
+
+  const helperFormState = (data) => {
+    let obj = {};
+
+    for (let entry of data.name.values()) {
+      console.log(entry);
+      obj[entry] = "";
+    }
+    setFormState(obj);
+    console.log(obj);
+  };
+
+  const makeForm = (data) => {
+    console.log("hello world");
+    console.log(data);
+    if (data === {} || data === undefined) {
+      return <h1>wait</h1>;
+    } else {
+      console.log(data);
+      console.log(data.name.length);
+      let temp = [];
+      for (let i = 0; i < data.name.length; i++) {
+        temp.push(i);
+      }
+      console.log(temp);
+      return temp.map((i) => {
+        return makeFormInputs(data, i);
+      });
+    }
+  };
+
+  const getForm = async () => {
+    const data = await axios.get(`/form/FacultyRecruitment`);
+    const temp = data.data.formsRecord[0];
+    helperFormState(temp);
+    setOtherRecord(temp);
+    setStatus(true);
+    console.log(temp);
+  };
+
+  useEffect(() => {
+    getForm();
+  }, []);
+
   const handleSubmit = async () => {
     let currentRecord = facultyRecord;
 
@@ -30,6 +96,7 @@ export default function FacultyRecruitment() {
     currentRecord.department = "cse";
 
     currentRecord.resume = "AhaaaFake!!";
+    currentRecord.other = formState;
 
     //console.log(currentRecord);
 
@@ -382,6 +449,9 @@ export default function FacultyRecruitment() {
                   </div>
                 </div>
               </div>
+
+              <h1>others</h1>
+              {makeForm(otherRecord)}
               <div class="row mb-0 text-end">
                 <div class="col-sm-9 offset-sm-3">
                   <button
