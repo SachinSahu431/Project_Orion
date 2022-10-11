@@ -33,7 +33,6 @@ const getFormByName = async (req, res, next) => {
 };
 
 const updateFormByName = async (req, res, next) => {
-  const formName = "FacultyRecruitment";
   const {
     name,
     schemaType,
@@ -45,6 +44,7 @@ const updateFormByName = async (req, res, next) => {
     valid,
     invalid,
     formText,
+    formName,
   } = req.body;
 
   console.log(req.body);
@@ -52,7 +52,7 @@ const updateFormByName = async (req, res, next) => {
   let formsRecord;
   try {
     formsRecord = await forms.findOne({
-      formName: "FacultyRecruitment",
+      formName: formName,
     });
     formsRecord.name = [...formsRecord.name, name];
     formsRecord.schemaType = [...formsRecord.schemaType, schemaType];
@@ -68,6 +68,28 @@ const updateFormByName = async (req, res, next) => {
       .status(200)
       .json({ formsRecord: formsRecord.toObject({ getters: true }) });
   } catch (err) {
+    try {
+      formsRecord = new forms({
+        name,
+        schemaType,
+        required,
+        frontend,
+        label,
+        placeholder,
+        type,
+        valid,
+        invalid,
+        formText,
+        formName,
+      });
+      await formsRecord.save();
+    } catch (err) {
+      const error = new HttpError(
+        "Creating form failed, please try again.",
+        500
+      );
+      return next(error);
+    }
     const error = new HttpError(
       "Something went wrong could not find forms Record",
       500

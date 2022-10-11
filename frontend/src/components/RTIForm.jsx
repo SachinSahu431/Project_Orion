@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import FormInput from "./FormInput";
 export default function RTIForm() {
   const [rtiRecord, setRtiRecord] = useState({
     name: "",
@@ -17,8 +18,80 @@ export default function RTIForm() {
     setRtiRecord({ ...rtiRecord, [name]: value });
   };
 
+  const [otherRecord, setOtherRecord] = useState();
+  const [formState, setFormState] = useState({});
+  const [status, setStatus] = useState(false);
+
+  const makeFormInputs = (data, i) => {
+    return (
+      <FormInput
+        label={data.label[i]}
+        type={data.type[i]}
+        placeholder={data.placeholder[i]}
+        name={data.name[i]}
+        valid="Good!"
+        invalid="Please provide a valid input."
+        formText="Hehehe"
+        // invalid={data.invalid[i]}
+        // valid={data.valid[i]}
+        // formText={data.formText[i]}
+        curFormState={formState}
+        changeCurFormState={setFormState}
+      />
+    );
+  };
+
+  const helperFormState = (data) => {
+    let obj = {};
+
+    for (let entry of data.name.values()) {
+      console.log(entry);
+      obj[entry] = "";
+    }
+    setFormState(obj);
+    console.log(obj);
+  };
+
+  const makeForm = (data) => {
+    console.log(data);
+    if (data === {} || data === undefined) {
+      return <></>;
+    } else {
+      console.log(data);
+      console.log(data.name.length);
+      let temp = [];
+      for (let i = 0; i < data.name.length; i++) {
+        temp.push(i);
+      }
+      console.log(temp);
+      return temp.map((i) => {
+        return makeFormInputs(data, i);
+      });
+    }
+  };
+
+  const getForm = async () => {
+    try {
+      const data = await axios.get(`/form/Rti`);
+      const temp = data.data.formsRecord[0];
+      helperFormState(temp);
+      setOtherRecord(temp);
+      setStatus(true);
+      console.log(temp);
+    } catch (err) {
+      console.log("no custom field found");
+    }
+  };
+
+  useEffect(() => {
+    getForm();
+  }, []);
+
   const handleSubmit = async () => {
     let temp = rtiRecord;
+    temp.other = formState;
+    console.log(temp);
+
     try {
       await axios.post(`/rti/create`, temp);
 
@@ -178,6 +251,9 @@ export default function RTIForm() {
                 </div>
               </div>
             </div>
+            {status ? <h1>others</h1> : null}
+
+            {makeForm(otherRecord)}
             <div className="row mb-0">
               <div className="col-sm-9 offset-sm-3 text-end">
                 <button

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Panel = () => {
   const [formState, setFormState] = useState({
+    formName: "",
     name: "",
     schemaType: "",
     required: "",
@@ -28,9 +30,19 @@ const Panel = () => {
     curRecord.valid = "Good!";
     curRecord.invalid = "Please provide a valid input.";
     curRecord.formText = "";
+    console.log(curRecord);
 
     try {
-      await axios.post(` http://localhost:5000/api/form/custom`, curRecord);
+      await axios.post(`http://localhost:5000/api/form/custom`, curRecord);
+
+      await Swal.fire({
+        title: "Success!",
+        text: `Form field ${curRecord.name} added successfully to ${curRecord.formName} form.`,
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+
+      window.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -40,6 +52,21 @@ const Panel = () => {
     <>
       <div className="panel">
         <h1>Add new Field</h1>
+
+        <select
+          id="pageName"
+          onChange={() => {
+            setFormState({
+              ...formState,
+              formName: document.getElementById("pageName").value,
+            });
+          }}
+        >
+          <option value="Rti">RTI Page</option>
+          <option value="FacultyRecruitment">Faculty Recruitment Page</option>
+          <option value="Property">Property Page</option>
+          <option value="StaffPayment">Staff Payment Management</option>
+        </select>
 
         <div className="d-flex flex-column">
           <div className="d-flex flex-row">

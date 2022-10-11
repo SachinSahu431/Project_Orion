@@ -117,10 +117,8 @@ const getRtiRecordByQueryType = async (req, res, next) => {
   let rtiRecord;
   try {
     rtiRecord = await rti.find({ queryType: type });
-  } 
-  catch (err) {
-    const error = new HttpError
-    (
+  } catch (err) {
+    const error = new HttpError(
       "Something went wrong could not find rti Record",
       500
     );
@@ -190,9 +188,9 @@ const createRtiRecord = async (req, res, next) => {
     );
   }
 
-  const { name, email, phone, rtiQuery, queryType } = req.body;
+  const { name, email, phone, rtiQuery, queryType, other } = req.body;
 
-  if (!name || !email || !phone || !rtiQuery || !queryType) {
+  if (!name || !email || !phone || !rtiQuery || !queryType || !other) {
     return res.status(422).json({ error: "Please fill everything properly" });
   }
 
@@ -211,6 +209,7 @@ const createRtiRecord = async (req, res, next) => {
         rtiQuery,
         queryType,
         queryResponse,
+        other,
       });
 
       await record.save();
