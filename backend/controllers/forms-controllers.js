@@ -61,6 +61,9 @@ const updateFormByName = async (req, res, next) => {
     formsRecord.label = [...formsRecord.label, label];
     formsRecord.placeholder = [...formsRecord.placeholder, placeholder];
     formsRecord.type = [...formsRecord.type, type];
+    formsRecord.valid = [...formsRecord.type, valid];
+    formsRecord.invalid = [...formsRecord.type, invalid];
+    formsRecord.formText = [...formsRecord.type, formText];
 
     await formsRecord.save();
 

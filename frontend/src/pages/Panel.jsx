@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const Panel = () => {
   const [formState, setFormState] = useState({
-    formName: "",
+    formName: "Rti",
     name: "",
     schemaType: "",
     required: "",
@@ -26,14 +26,13 @@ const Panel = () => {
 
   const handleSubmit = async () => {
     let curRecord = formState;
+    curRecord.schemaType = "String";
+    curRecord.frontend = "true";
 
-    curRecord.valid = "Good!";
-    curRecord.invalid = "Please provide a valid input.";
-    curRecord.formText = "";
     console.log(curRecord);
 
     try {
-      await axios.post(`http://localhost:5000/api/form/custom`, curRecord);
+      await axios.post(`/form/custom`, curRecord);
 
       await Swal.fire({
         title: "Success!",
@@ -64,8 +63,6 @@ const Panel = () => {
         >
           <option value="Rti">RTI Page</option>
           <option value="FacultyRecruitment">Faculty Recruitment Page</option>
-          <option value="Property">Property Page</option>
-          <option value="StaffPayment">Staff Payment Management</option>
         </select>
 
         <div className="d-flex flex-column">
@@ -84,19 +81,6 @@ const Panel = () => {
 
           <div className="d-flex flex-row">
             <div className="d-flex flex-column">
-              <label for="name">Schema Type</label>
-              <input
-                type="text"
-                name="schemaType"
-                id="name"
-                value={formState.schemaType}
-                onChange={handleInputs}
-              />
-            </div>
-          </div>
-
-          <div className="d-flex flex-row">
-            <div className="d-flex flex-column">
               <label for="name">Required</label>
               <input
                 type="text"
@@ -104,19 +88,6 @@ const Panel = () => {
                 onChange={handleInputs}
                 id="name"
                 value={formState.required}
-              />
-            </div>
-          </div>
-
-          <div className="d-flex flex-row">
-            <div className="d-flex flex-column">
-              <label for="name">frontend</label>
-              <input
-                type="text"
-                name="frontend"
-                onChange={handleInputs}
-                id="name"
-                value={formState.frontend}
               />
             </div>
           </div>
@@ -156,6 +127,45 @@ const Panel = () => {
                 onChange={handleInputs}
                 id="name"
                 value={formState.type}
+              />
+            </div>
+          </div>
+
+          <div className="d-flex flex-row">
+            <div className="d-flex flex-column">
+              <label for="name">Valid</label>
+              <input
+                type="text"
+                name="valid"
+                onChange={handleInputs}
+                id="name"
+                value={formState.valid}
+              />
+            </div>
+          </div>
+
+          <div className="d-flex flex-row">
+            <div className="d-flex flex-column">
+              <label for="name">Invalid</label>
+              <input
+                type="text"
+                name="invalid"
+                onChange={handleInputs}
+                id="name"
+                value={formState.invalid}
+              />
+            </div>
+          </div>
+
+          <div className="d-flex flex-row">
+            <div className="d-flex flex-column">
+              <label for="name">FormText</label>
+              <input
+                type="text"
+                name="formText"
+                onChange={handleInputs}
+                id="name"
+                value={formState.formText}
               />
             </div>
           </div>

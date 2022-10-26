@@ -29,12 +29,9 @@ export default function RTIForm() {
         type={data.type[i]}
         placeholder={data.placeholder[i]}
         name={data.name[i]}
-        valid="Good!"
-        invalid="Please provide a valid input."
-        formText="Hehehe"
-        // invalid={data.invalid[i]}
-        // valid={data.valid[i]}
-        // formText={data.formText[i]}
+        invalid={data.invalid[i]}
+        valid={data.valid[i]}
+        formText={data.formText[i]}
         curFormState={formState}
         changeCurFormState={setFormState}
       />
@@ -251,7 +248,7 @@ export default function RTIForm() {
                 </div>
               </div>
             </div>
-            {status ? <h1>others</h1> : null}
+            {status ? <h5 className="text-start">Others</h5> : null}
 
             {makeForm(otherRecord)}
             <div className="row mb-0">

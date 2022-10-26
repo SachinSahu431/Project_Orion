@@ -33,12 +33,9 @@ export default function FacultyRecruitment() {
         type={data.type[i]}
         placeholder={data.placeholder[i]}
         name={data.name[i]}
-        valid="Good!"
-        invalid="Please provide a valid input."
-        formText="Hehehe"
-        // invalid={data.invalid[i]}
-        // valid={data.valid[i]}
-        // formText={data.formText[i]}
+        invalid={data.invalid[i]}
+        valid={data.valid[i]}
+        formText={data.formText[i]}
         curFormState={formState}
         changeCurFormState={setFormState}
       />
@@ -95,7 +92,7 @@ export default function FacultyRecruitment() {
     currentRecord.qualification = "btech";
     currentRecord.department = "cse";
 
-    currentRecord.resume = "AhaaaFake!!";
+    currentRecord.resume = "resume";
     currentRecord.other = formState;
 
     //console.log(currentRecord);
@@ -450,7 +447,7 @@ export default function FacultyRecruitment() {
                 </div>
               </div>
 
-              <h1>others</h1>
+              {status ? <h5 className="text-start">Others</h5> : null}
               {makeForm(otherRecord)}
               <div class="row mb-0 text-end">
                 <div class="col-sm-9 offset-sm-3">
