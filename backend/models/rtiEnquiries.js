@@ -24,6 +24,7 @@ const rtiEnquirySchema = new mongoose.Schema({
   queryResponse: {
     type: String,
   },
+  other: [mongoose.Schema.Types.Mixed],
 });
 
 const rtiEnquiry = mongoose.model("rti", rtiEnquirySchema);

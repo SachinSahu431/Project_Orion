@@ -146,7 +146,10 @@ const createRecruitmentRecord = async (req, res, next) => {
     department,
     yearsOfExperience,
     resume,
+    other,
   } = req.body;
+
+  console.log(req.body);
 
   if (
     !name ||
@@ -181,6 +184,7 @@ const createRecruitmentRecord = async (req, res, next) => {
 
         yearsOfExperience,
         resume,
+        other,
       });
 
       await record.save();

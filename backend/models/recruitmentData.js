@@ -42,6 +42,7 @@ const recruitmentSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  other: [mongoose.Schema.Types.Mixed],
 });
 
 const Recruitment = mongoose.model("recruitment", recruitmentSchema);
