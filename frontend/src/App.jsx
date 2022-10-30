@@ -35,6 +35,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import DynamicRec from "./pages/DynamicRec";
 import Panel from "./pages/Panel";
+import logo from "./logo.png";
+
 const navHeight = 65;
 const contentHeight = "calc(100% - " + navHeight + "px)";
 
@@ -57,10 +59,10 @@ export default function App() {
               <span class="material-symbols-outlined align-middle">menu</span>
             </button>
             <img
-              alt="IIT Tirupati Logo"
-              src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Indian_Institute_of_Technology_Tirupati_Logo.svg/1920px-Indian_Institute_of_Technology_Tirupati_Logo.svg.png"
-              className="img bg-white p-1 rounded"
-              style={{ ratio: "1/1", height: "50px", width: "80px" }}
+              alt="Project Orion Logo"
+              src={logo}
+              className="img bg-white pt-0 p-1 rounded"
+              style={{ height: "50px", width: "70px" }}
             ></img>
             <div className="flex-fill my-auto pt-2 ms-2">
               <h4 className="font-primary">Project Orion</h4>
