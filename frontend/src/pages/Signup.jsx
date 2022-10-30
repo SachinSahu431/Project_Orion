@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Signup() {
   const [account, setAccount] = useState({
@@ -18,13 +19,28 @@ export default function Signup() {
   };
 
   const handleSubmit = async () => {
-    const response = await axios.post("/signup", account);
+    const response = await axios.post(
+      "http://localhost:5000/api/signup",
+      account
+    );
 
-    const data = await response.json();
-    if (data.success) {
+    console.log(response);
+
+    if (response.status === 200) {
+      await Swal.fire({
+        title: "Success!",
+        text: "You have successfully signed up!",
+        icon: "success",
+        confirmButtonText: "Ok",
+      });
       window.location.href = "/login";
     } else {
-      alert(data.message);
+      Swal.fire({
+        title: "Error!",
+        text: response.data,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
   return (
@@ -50,10 +66,10 @@ export default function Signup() {
             <input
               type="email"
               className="form-control"
-                name="email"
+              name="email"
               id="email"
-                value={account.email}
-                onChange={handleInputs}
+              value={account.email}
+              onChange={handleInputs}
               placeholder="Enter Email"
             />
           </div>
@@ -62,10 +78,10 @@ export default function Signup() {
             <input
               type="text"
               className="form-control"
-                name="phone"
+              name="phone"
               id="phone"
-                value={account.phone}
-                onChange={handleInputs}
+              value={account.phone}
+              onChange={handleInputs}
               placeholder="Enter Phone Number"
             />
           </div>
@@ -74,10 +90,10 @@ export default function Signup() {
             <input
               type="password"
               className="form-control"
-                name="password"
+              name="password"
               id="password"
-                value={account.password}
-                onChange={handleInputs}
+              value={account.password}
+              onChange={handleInputs}
               placeholder="Enter Password"
             />
           </div>

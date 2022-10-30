@@ -1,7 +1,3 @@
-// To do:
-// Remove the harcoded dates and genders from all forms.
-// Support file upload feature to the database
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -35,50 +31,64 @@ app.use(
     secret: "Simple Secret",
     resave: false,
     saveUninitialized: false,
+    cookie: { maxAge: 60 * 60 * 1000 },
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(accounts.createStrategy());
 passport.serializeUser(accounts.serializeUser());
 passport.deserializeUser(accounts.deserializeUser());
 
-// app.get("/", (req, res) => {
-//   res.send("Server Route.");
-// });
+app.get("/", (req, res) => {
+  res.send("Server Route.");
+});
 
-// app.post("/api/login", (req, res) => {
-//   const user = new accounts({
-//     username: req.body.username,
-//     password: req.body.password
-//   });
+//authenticate using passportjs
+app.post("/api/auth/login", (req, res) => {
+  console.log(req.body);
+  const user = new accounts({
+    username: req.body.username,
+    password: req.body.password,
+  });
+  req.login(user, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      passport.authenticate("local")(req, res, () => {
+        accounts.findOne({ username: req.body.username }, (err, foundUser) => {
+          if (err) {
+            console.log(err);
+          } else {
+            if (foundUser) {
+              res.status(200).send(foundUser);
+            }
+          }
+        });
+      });
+    }
+  });
+});
 
-//   req.login(user, function(err) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       passport.authenticate("local")(req, res, function() {
-//         res.send("Successfully Logged In.");
-//       });
-//     }
-//   });
-// });
-
-// app.post("/api/signup", (req, res) => {
-//   accounts.register({
-//     username: req.body.email,
-//     name: req.body.name,
-//     email: req.body.email,
-//     phone: req.body.phone }, req.body.password, (err, user) => {
-
-//       if(err){
-//         res.send(err);
-//       }else{
-//         res.send("Success");
-//       }
-//   })
-// });
+app.post("/api/signup", (req, res) => {
+  console.log(req.body);
+  accounts.register(
+    {
+      username: req.body.email,
+      name: req.body.username,
+      email: req.body.email,
+      phone: req.body.phone,
+    },
+    req.body.password,
+    (err, user) => {
+      if (err) {
+        res.status(400).send(err);
+      } else {
+        res.status(200).send("Successfully Registered.");
+      }
+    }
+  );
+});
 
 app.use("/api/medical", medicalRoutes);
 app.use("/api/performance", performanceRoutes);
