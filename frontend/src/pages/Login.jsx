@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [account, setAccount] = useState({
@@ -20,7 +21,7 @@ export default function Login() {
         localStorage.setItem("email", res.data.username);
         localStorage.setItem("phone", res.data.phone);
         localStorage.setItem("name", res.data.name);
-        window.location.href = "/";
+        window.location.href = "/Home";
       }
     } catch (error) {
       console.log(error);
@@ -57,6 +58,7 @@ export default function Login() {
               }
             />
           </div>
+
           <div className="row m-2 justify-content-end">
             <div className="col-sm-9 text-end">
               <button
@@ -67,6 +69,12 @@ export default function Login() {
                 Submit
               </button>
             </div>
+          </div>
+
+          <div className="row m-2 justify-content-start">
+            <Link to="/signup">
+              <button className="btn btn-primary">New User</button>
+            </Link>
           </div>
         </div>
       </div>

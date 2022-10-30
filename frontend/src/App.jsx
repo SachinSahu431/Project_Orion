@@ -140,6 +140,7 @@ export default function App() {
                   </Link>
                 </ul>
               </Link>
+
               <Link
                 to="/training"
                 className="list-group-item list-group-item-action"
@@ -170,6 +171,21 @@ export default function App() {
               >
                 Staff Recruitment Portal
               </Link>
+
+              <Link to="/admin" className="list-group-item">
+                <span>Admin</span>
+                <ul
+                  className="list-group list-group-flush within-list"
+                  id="staff-list"
+                >
+                  <Link to="/applications" className="list-group-item">
+                    Applications
+                  </Link>
+                  <Link to="/panel" className="list-group-item">
+                    Panel
+                  </Link>
+                </ul>
+              </Link>
             </ul>
           </div>
           <div
@@ -182,7 +198,8 @@ export default function App() {
           >
             <div className="pt-2 h-100">
               <Routes>
-                <Route path="/" element={<Home />}></Route>
+                <Route path="/" element={<Login />}></Route>
+                <Route path="/SignUp" element={<Signup />}></Route>
                 <Route path="/home" element={<Home />}></Route>
 
                 <Route path="/legal" element={<Legal />}></Route>

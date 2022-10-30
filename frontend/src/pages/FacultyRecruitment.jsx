@@ -90,7 +90,6 @@ export default function FacultyRecruitment() {
 
     currentRecord.dateOfBirth = moment(dob).format("DD/MM/YYYY");
     currentRecord.qualification = "btech";
-    currentRecord.department = "cse";
 
     currentRecord.resume = "resume";
     currentRecord.other = formState;
@@ -113,6 +112,23 @@ export default function FacultyRecruitment() {
       });
       console.log(e);
     }
+  };
+
+  const [url, setUrl] = useState(null);
+  const handleChangeInputFile = async (e) => {
+    const file = e.target.files[0];
+
+    let newFile = "Resume/" + file.name;
+    const fileRef = ref(storage, newFile);
+
+    await uploadBytes(fileRef, file).then((snapshot) => {
+      console.log("Uploaded a file");
+      getDownloadURL(snapshot.ref).then((url) => {
+        console.log(url);
+        setUrl(url);
+      });
+    });
+    console.log(url);
   };
 
   return (
@@ -222,6 +238,12 @@ export default function FacultyRecruitment() {
                       name="exampleInlineRadioColor"
                       id="exampleInlineRadio1"
                       value="option1"
+                      onClick={(e) => {
+                        setFacultyRecord({
+                          ...facultyRecord,
+                          department: "cse",
+                        });
+                      }}
                       required
                     />
                     <label class="form-check-label" for="exampleInlineRadio1">
@@ -235,6 +257,12 @@ export default function FacultyRecruitment() {
                       name="exampleInlineRadioColor"
                       id="exampleInlineRadio2"
                       value="option2"
+                      onClick={(e) => {
+                        setFacultyRecord({
+                          ...facultyRecord,
+                          department: "me",
+                        });
+                      }}
                       required
                     />
                     <label class="form-check-label" for="exampleInlineRadio2">
@@ -248,6 +276,12 @@ export default function FacultyRecruitment() {
                       name="exampleInlineRadioColor"
                       id="exampleInlineRadio3"
                       value="option3"
+                      onClick={(e) => {
+                        setFacultyRecord({
+                          ...facultyRecord,
+                          department: "ce",
+                        });
+                      }}
                       required
                     />
                     <label class="form-check-label" for="exampleInlineRadio3">
@@ -261,25 +295,19 @@ export default function FacultyRecruitment() {
                       name="exampleInlineRadioColor"
                       id="exampleInlineRadio4"
                       value="option4"
+                      onClick={(e) => {
+                        setFacultyRecord({
+                          ...facultyRecord,
+                          department: "ee",
+                        });
+                      }}
                       required
                     />
                     <label class="form-check-label" for="exampleInlineRadio4">
                       Electrical
                     </label>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="radio"
-                      name="exampleInlineRadioColor"
-                      id="exampleInlineRadio5"
-                      value="option5"
-                      required
-                    />
-                    <label class="form-check-label" for="exampleInlineRadio5">
-                      Other
-                    </label>
-                  </div>
+
                   <div class="invalid-feedback">
                     Please provide a valid value.
                   </div>
@@ -376,6 +404,7 @@ export default function FacultyRecruitment() {
                     type="file"
                     class="form-control"
                     id="exampleCustomFile"
+                    onChange={handleChangeInputFile}
                     required
                   />
                   <div class="invalid-feedback">
