@@ -5,6 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import DatePicker from "react-date-picker";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 export default function Medical() {
   const [propertyRecord, setPropertyRecord] = useState({
@@ -14,6 +15,13 @@ export default function Medical() {
     gender: "",
     dateOfBirth: "",
   });
+
+  const autofill = () => {
+    const email = localStorage.getItem("email");
+    const phone = localStorage.getItem("phone");
+    const name = localStorage.getItem("name");
+    setPropertyRecord({ ...propertyRecord, email, phone, name });
+  };
 
   const [url, setUrl] = useState(null);
   const [dob, setDob] = useState();
@@ -63,6 +71,10 @@ export default function Medical() {
       window.location.reload();
     }
   };
+
+  useEffect(() => {
+    autofill();
+  }, []);
 
   return (
     <>

@@ -6,6 +6,7 @@ import DatePicker from "react-date-picker";
 import moment from "moment";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 // import FormInput from "./FormInput";
 
 export default function MedicalRecordsCreate() {
@@ -17,6 +18,14 @@ export default function MedicalRecordsCreate() {
     dateOfBirth: "",
   });
 
+  const autofill = () => {
+    setMedicalRecord({
+      ...medicalRecord,
+      name: localStorage.getItem("name"),
+      email: localStorage.getItem("email"),
+      phone: localStorage.getItem("phone"),
+    });
+  };
   const [medicalHistory, setMedicalHistory] = useState({
     diagnosis: "",
     referredPhysician: "",
@@ -64,6 +73,11 @@ export default function MedicalRecordsCreate() {
       });
     });
   };
+
+  //useEffect
+  useEffect(() => {
+    autofill();
+  }, []);
 
   const handleSubmit = async () => {
     let currentRecord = medicalRecord;

@@ -17,7 +17,9 @@ export default function Login() {
       console.log(res);
 
       if (res.status === 200) {
-        localStorage.setItem("token", res.data);
+        localStorage.setItem("email", res.data.username);
+        localStorage.setItem("phone", res.data.phone);
+        localStorage.setItem("name", res.data.name);
         window.location.href = "/";
       }
     } catch (error) {

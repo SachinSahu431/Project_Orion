@@ -3,6 +3,7 @@ import axios from "axios";
 import DatePicker from "react-date-picker";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 export default function TrainingRecordsCreate() {
   const [trainingRecord, setTrainingRecord] = useState({
@@ -12,6 +13,12 @@ export default function TrainingRecordsCreate() {
     gender: "",
     dateOfBirth: "",
   });
+  const autofill = () => {
+    const email = localStorage.getItem("email");
+    const phone = localStorage.getItem("phone");
+    const name = localStorage.getItem("name");
+    setTrainingRecord({ ...trainingRecord, email, phone, name });
+  };
 
   const [trainingHistory, setTrainingHistory] = useState({
     trainingName: "",
@@ -55,6 +62,10 @@ export default function TrainingRecordsCreate() {
       window.location.reload();
     }
   };
+
+  useEffect(() => {
+    autofill();
+  }, []);
 
   return (
     <>

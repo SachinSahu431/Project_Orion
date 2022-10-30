@@ -11,6 +11,12 @@ export default function RTIForm() {
     rtiQuery: "",
     queryType: "",
   });
+  const autofill = () => {
+    const email = localStorage.getItem("email");
+    const phone = localStorage.getItem("phone");
+    const name = localStorage.getItem("name");
+    setRtiRecord({ ...rtiRecord, email, phone, name });
+  };
   const handleInputs = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -82,6 +88,7 @@ export default function RTIForm() {
 
   useEffect(() => {
     getForm();
+    autofill();
   }, []);
 
   const handleSubmit = async () => {

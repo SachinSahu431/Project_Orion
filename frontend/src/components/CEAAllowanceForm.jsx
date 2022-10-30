@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -20,6 +20,13 @@ export default function CeaAllowanceForm() {
     monthlyCeaDemanded2: "",
     numberOfMonthsDemanded2: "",
   });
+
+  const autofill = () => {
+    const email = localStorage.getItem("email");
+    const phone = localStorage.getItem("phone");
+    const name = localStorage.getItem("name");
+    setCeaRecord({ ...ceaRecord, email, phone, name });
+  };
 
   const handleInputs = (e) => {
     let name = e.target.name;
@@ -53,6 +60,11 @@ export default function CeaAllowanceForm() {
       }
     }
   };
+
+  //useEffect
+  useEffect(() => {
+    autofill();
+  }, []);
 
   return (
     <>
